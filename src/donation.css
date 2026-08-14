@@ -1,0 +1,52 @@
+.donation-page {
+  width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: white;
+  text-align: center;
+}
+
+.donation-page h1 {
+  color: green;
+}
+
+.donation-page h2 {
+  font-size: 20px;
+}
+
+.donation-options button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.donation-page label {
+  display: block;
+  text-align: left;
+  margin-top: 15px;
+}
+
+.donation-page input,
+.donation-page select,
+.donation-page textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+.donation-page textarea {
+  height: 80px;
+}
+
+.submit-button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
