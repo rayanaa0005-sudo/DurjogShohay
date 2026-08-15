@@ -127,10 +127,7 @@ const Shelters = () => {
                 <div className="location-selection">
                     <label>Select Your Location</label>
 
-                    <select
-                        value={selectedLocation}
-                        onChange={(e) => setSelectedLocation(e.target.value)}
-                    >
+                    <select value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)} >
                         <option value="">Select a location</option>
                         <option value="Dhaka">Dhaka</option>
                         <option value="Chittagong">Chittagong</option>
@@ -145,9 +142,8 @@ const Shelters = () => {
 
                 {selectedLocation && (
                     <div className="shelter-section">
-                        <h2>
-                            Shelters in {selectedLocation}
-                        </h2>
+                        
+                        <h2>Shelters in {selectedLocation}</h2>
 
                         {shelters[selectedLocation].map((shelter, index) => (
                             <div className="shelter-card" key={index}>

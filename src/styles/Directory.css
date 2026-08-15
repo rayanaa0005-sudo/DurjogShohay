@@ -2,7 +2,7 @@
     min-height: 100vh;
     background-color: white;
     text-align: center;
-    padding: 50px 20px;
+    padding: 15px 20px;
 }
 
 .directory-page h1 {
@@ -11,21 +11,17 @@
     margin-bottom: 30px;
 }
 
-.directory-page>p {
-    color: #444;
-    font-size: 18px;
-    margin-bottom: 20px;
-}
 
 .selection-section {
     margin-bottom: 30px;
+
 }
 
 .selection-section label {
     display: block;
     color: #006A4E;
     font-size: 32px;
-    font-weight: bold;
+    /* font-weight: bold; */
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -36,8 +32,12 @@
     padding: 12px;
     border-radius: 30px;
     font-size: 16px;
-    background-color: rgb(199, 221, 209);
+    background-color: white;
 }
+.selection-section select:hover{
+    background-color:rgb(199, 221, 209);
+}
+
 
 .organization-section {
     width: 1200px;

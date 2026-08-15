@@ -25,7 +25,7 @@
     max-width: 100%;
     margin: 0 auto;
     padding: 30px;
-    border: 1px solid #ddd;
+    border: 1px solid #006A4E ;
     border-radius: 8px;
     text-align: left;
     box-sizing: border-box;
@@ -40,6 +40,7 @@
 .volunteer-form label {
     display: block;
     margin-bottom: 6px;
+    height: 50%;
 }
 
 .volunteer-form input,
@@ -47,8 +48,9 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 18px;
-    border: 1px solid #ccc;
+    border: 1px solid #444;
     border-radius: 4px;
+    background-color: rgb(199, 221, 209);
     box-sizing: border-box;
 }
 
@@ -62,6 +64,13 @@
     cursor: pointer;
 }
 
+.success-message{
+    color: #006A4E;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom:-10px;
+    margin-top: 25px;
+}
 .volunteer-form button:hover {
     background-color: #00513c;
 }
