@@ -1,0 +1,80 @@
+.shelter-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.shelter-page h1 {
+    color: #006A4E;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.shelter-page>p {
+    color: #444;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.location-selection {
+    width: 450px;
+    max-width: 100%;
+    margin: 0 auto 40px;
+    text-align: left;
+}
+
+.location-selection label {
+    display: block;
+    color: #006A4E;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.location-selection select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    font-size: 16px;
+    background-color: white;
+}
+
+.location-selection select:hover {
+    background-color: rgb(199, 221, 209);
+}
+
+.shelter-section {
+    width: 700px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.shelter-section h2 {
+    color: #006A4E;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.shelter-card {
+    background-color: rgb(199, 221, 209);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: left;
+   margin-bottom: 20px;
+}
+
+.shelter-card h3 {
+    color: #006A4E;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.shelter-card p {
+    color: #444;
+    font-size: 16px;
+    margin: 8px 0;
+}

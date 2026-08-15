@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 import {
   FaAmbulance,
@@ -29,59 +30,7 @@ function Home() {
     <div className="home-page">
 
 
-      {/* ==============================
-          NAVIGATION BAR
-      ============================== */}
-
-      <nav className="home-navbar">
-
-        <div className="home-logo">
-          DurjogShohay
-        </div>
-
-
-        <div className="home-nav-links">
-
-          <Link to="/" className="active">
-            Home
-          </Link>
-
-          <Link to="/get-help">
-            Get Help ▼
-          </Link>
-
-          <Link to="/give-help">
-            Give Help ▼
-          </Link>
-
-          <Link to="/track">
-            Track ▼
-          </Link>
-
-          <Link to="/community">
-            Community ▼
-          </Link>
-
-          <Link to="/about">
-            About Us
-          </Link>
-
-          <Link to="/profile">
-            <FaUser />
-              Profile
-          </Link>
-
-          <Link to="/login">
-            Login
-          </Link>
-
-          <Link to="/signup">
-            Sign Up
-          </Link>
-
-        </div>
-
-      </nav>
+      <NavBar />
 
 
       {/* ==============================
