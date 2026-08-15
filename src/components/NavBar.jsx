@@ -10,6 +10,8 @@ const NavBar=()=>{
                 <Link to="/">Home</Link>
                 <Link to="/shelters">Shelters</Link>
                 <Link to="/volunteer">Volunteer</Link>
+                <Link to="/directory">Organisations</Link>
+                
             </div>
         </nav>
     );
