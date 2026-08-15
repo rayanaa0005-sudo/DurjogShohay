@@ -1,0 +1,67 @@
+
+.volunteer-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    text-align: center;
+    padding: 50px 20px;
+    box-sizing: border-box;
+}
+
+.volunteer-page h1 {
+    color: #006A4E;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.volunteer-page>p {
+    color: #444;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.volunteer-form {
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.volunteer-form h2 {
+    color: #006A4E;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.volunteer-form label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.volunteer-form input,
+.volunteer-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.volunteer-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #006A4E;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.volunteer-form button:hover {
+    background-color: #00513c;
+}
