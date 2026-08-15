@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-color: white;
+}
+
+.track-page {
+    position: relative;
+
+    min-height: 100vh;
+    width: 100%;
+
+    background-color: white;
+
+    padding: 100px 8% 50px;
+
+    text-align: center;
+}
+
+
+
+
+.site-logo {
+    position: absolute;
+    top: 25px;
+    left: 40px;
+
+    color: #00543F;
+    font-size: 24px;
+    font-weight: 500;
+
+    transform: scaleY(1.15);
+    transform-origin: top left;
+}
+
+
+
+.track-page h1 {
+    color: #006A4E;
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+.track-page h2 {
+    color: #333333;
+
+    font-size: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+
+
+.track-page>input {
+    width: 500px;
+    max-width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #cccccc;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+}
+
+
+
+.track-page>input {
+    width: 500px;
+    max-width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #cccccc;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    background-color: white;
+    color: #333333;
+}
+
+.track-page>input:focus {
+    outline: none;
+
+    border: 2px solid #006A4E;
+}
+
+
+
+.track-button {
+    display: block;
+
+    margin: 20px auto;
+
+    padding: 13px 40px;
+
+    background-color: #006A4E;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.track-button:hover {
+    background-color: #004d39;
+}
+
+
+
+
+.donation-info {
+    max-width: 600px;
+
+    margin: 40px auto 0;
+
+    padding: 30px;
+
+    border: 2px solid #006A4E;
+
+    border-radius: 10px;
+
+    text-align: left;
+
+    background-color: white;
+}
+
+.donation-info h2 {
+    text-align: center;
+
+    color: #006A4E;
+
+    margin-bottom: 25px;
+}
+
+.donation-info p {
+    color: #333333;
+
+    margin-bottom: 15px;
+
+    font-size: 16px;
+}
+
+
+
+@media (max-width: 600px) {
+
+    .track-page {
+        padding: 90px 20px 30px;
+    }
+
+    .site-logo {
+        top: 20px;
+        left: 20px;
+
+        font-size: 20px;
+    }
+
+    .track-page h1 {
+        font-size: 30px;
+    }
+
+    .track-page h2 {
+        font-size: 18px;
+    }
+
+    .donation-info {
+        padding: 20px;
+    }
+}

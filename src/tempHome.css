@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-color: white;
+}
+
+
+
+
+.temp-home {
+    min-height: 100vh;
+
+    background-color: white;
+
+    padding: 80px 8% 50px;
+
+    text-align: center;
+}
+
+
+
+
+.temp-home h1 {
+    color: #006A4E;
+
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+
+
+
+.temp-home h2 {
+    color: #444444;
+
+    font-size: 20px;
+
+    font-weight: normal;
+
+    margin-bottom: 50px;
+}
+
+
+
+
+.temp-home button {
+    display: block;
+
+    width: 280px;
+
+    margin: 15px auto;
+
+    padding: 15px 25px;
+
+    background-color: white;
+
+    color: #006A4E;
+
+    border: 2px solid #006A4E;
+
+    border-radius: 8px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.temp-home button:hover {
+    background-color: #006A4E;
+
+    color: white;
+}
+
+
+
+
+.temp-home::after {
+    content: "Choose a page to continue";
+
+    display: block;
+
+    margin-top: 50px;
+
+    color: #777777;
+
+    font-size: 14px;
+}
+
+
+
+.back-button {
+    display: block;
+
+    margin: 25px auto;
+
+    padding: 12px 30px;
+
+    background-color: #006A4E;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #004d39;
+}
+
+
+
+
+@media (max-width: 600px) {
+
+    .temp-home {
+        padding: 70px 20px 30px;
+    }
+
+    .temp-home h1 {
+        font-size: 32px;
+    }
+
+    .temp-home h2 {
+        font-size: 18px;
+    }
+
+    .temp-home button {
+        width: 100%;
+        max-width: 280px;
+    }
+}
