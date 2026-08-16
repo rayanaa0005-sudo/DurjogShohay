@@ -1,0 +1,587 @@
+/* ==================================================
+   GENERAL PAGE
+================================================== */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+
+/* ==================================================
+   MAIN LOGIN CONTAINER
+================================================== */
+
+.login-container {
+  width: 100%;
+  max-width: 1100px;
+
+  min-height: 650px;
+
+  background-color: #ffffff;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  box-shadow: 0 10px 30px rgba(0, 106, 78, 0.12);
+}
+
+
+/* ==================================================
+   NAVIGATION BAR
+================================================== */
+
+.navbar {
+  position: absolute;
+
+  top: 20px;
+
+  width: calc(100% - 80px);
+
+  max-width: 1020px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  z-index: 10;
+}
+
+
+/* Logo */
+
+.logo {
+  font-size: clamp(22px, 2.5vw, 28px);
+
+  font-weight: 500;
+
+  color: #006A4E;
+
+  white-space: nowrap;
+}
+
+
+/* Navigation links */
+
+.nav-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: clamp(12px, 2vw, 28px);
+}
+
+
+.nav-links a {
+  text-decoration: none;
+
+  font-size: clamp(9px, 1vw, 12px);
+
+  font-weight: 500;
+
+  color: #222222;
+
+  white-space: nowrap;
+}
+
+
+.nav-links a:hover {
+  color: #006A4E;
+}
+
+
+/* Active link */
+
+.nav-links .active {
+  color: #006A4E;
+
+  font-weight: bold;
+
+  border-bottom: 1px solid #006A4E;
+
+  padding-bottom: 6px;
+}
+
+
+/* ==================================================
+   LEFT SIDE
+================================================== */
+
+.login-left {
+  width: 60%;
+
+  padding: 100px clamp(30px, 6vw, 80px) 60px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+/* Heading */
+
+.login-left h1 {
+  color: #006A4E;
+
+  font-size: clamp(32px, 4vw, 38px);
+
+  font-weight: 500;
+
+  margin-bottom: 12px;
+}
+
+
+/* Subtitle */
+
+.login-subtitle {
+  font-size: 12px;
+
+  color: #666666;
+
+  margin-top: 0;
+
+  margin-bottom: 35px;
+
+  max-width: 400px;
+}
+
+
+/* ==================================================
+   FORM
+================================================== */
+
+.login-left form {
+  width: 100%;
+
+  max-width: 500px;
+}
+
+
+/* ==================================================
+   INPUT GROUP
+================================================== */
+
+.input-group {
+  width: 100%;
+
+  margin-bottom: 18px;
+}
+
+
+.input-group label {
+  display: block;
+
+  font-size: 11px;
+
+  color: #222222;
+
+  margin-bottom: 5px;
+}
+
+
+/* ==================================================
+   INPUTS
+================================================== */
+
+.input-group input {
+  width: 100%;
+
+  height: 36px;
+
+  box-sizing: border-box;
+
+  border: 1px solid transparent;
+
+  border-radius: 20px;
+
+  background-color: #f0f0f0;
+
+  padding: 0 15px;
+
+  outline: none;
+
+  font-size: 11px;
+
+  color: #222222;
+}
+
+
+.input-group input:focus {
+  border: 1px solid #006A4E;
+
+  background-color: #ffffff;
+}
+
+
+.input-group input::placeholder {
+  color: #999999;
+}
+
+
+/* ==================================================
+   PASSWORD INPUT
+================================================== */
+
+.password-input {
+  position: relative;
+
+  width: 100%;
+}
+
+
+.password-input input {
+  padding-right: 40px;
+}
+
+
+/* Eye */
+
+.eye-button {
+  position: absolute;
+
+  right: 12px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border: none;
+
+  background: transparent;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  color: #777777;
+
+  font-size: 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.eye-button:hover {
+  color: #006A4E;
+}
+
+
+/* ==================================================
+   FORGOT PASSWORD
+================================================== */
+
+.forgot-password {
+  width: 100%;
+
+  text-align: right;
+
+  margin-top: -8px;
+
+  margin-bottom: 20px;
+}
+
+
+.forgot-password a {
+  color: #006A4E;
+
+  font-size: 11px;
+
+  text-decoration: none;
+}
+
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+
+/* ==================================================
+   LOGIN BUTTON
+================================================== */
+
+.login-button {
+  width: 100%;
+
+  height: 38px;
+
+  border: none;
+
+  border-radius: 20px;
+
+  background-color: #006A4E;
+
+  color: #ffffff;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  margin-top: 5px;
+
+  transition: background-color 0.2s ease;
+}
+
+
+.login-button:hover {
+  background-color: #004f3a;
+}
+
+
+/* ==================================================
+   SIGN UP TEXT
+================================================== */
+
+.login-text {
+  font-size: 11px;
+
+  margin-top: 14px;
+
+  color: #333333;
+}
+
+
+.login-text a {
+  color: #006A4E;
+
+  text-decoration: none;
+}
+
+
+.login-text a:hover {
+  text-decoration: underline;
+}
+
+
+/* ==================================================
+   FORM VALIDATION
+================================================== */
+
+.input-error {
+  border: 1px solid #d32f2f !important;
+
+  background-color: #fff5f5 !important;
+}
+
+
+.error-message {
+  color: #d32f2f;
+
+  font-size: 10px;
+
+  margin-top: 5px;
+
+  margin-bottom: 0;
+}
+
+
+/* ==================================================
+   RIGHT GREEN PANEL
+================================================== */
+
+.login-right {
+  width: 40%;
+
+  background-color: #006A4E;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/* ==================================================
+   GEOMETRIC SHAPES
+================================================== */
+
+.shape {
+  position: absolute;
+
+  background: linear-gradient(
+    135deg,
+    #008f6a,
+    #004f3a
+  );
+
+  transform: rotate(45deg);
+
+  border-radius: 50px;
+}
+
+
+/* Large diagonal shape */
+
+.shape-one {
+  width: 500px;
+
+  height: 140px;
+
+  top: 100px;
+
+  right: -180px;
+}
+
+
+/* Middle diagonal shape */
+
+.shape-two {
+  width: 420px;
+
+  height: 120px;
+
+  top: 270px;
+
+  right: -150px;
+}
+
+
+/* Bottom diagonal shape */
+
+.shape-three {
+  width: 400px;
+
+  height: 120px;
+
+  bottom: 50px;
+
+  right: -120px;
+}
+
+
+/* Green circle */
+
+.shape-four {
+  width: 130px;
+
+  height: 130px;
+
+  top: 20px;
+
+  left: 70px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #00a878,
+    #00553e
+  );
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 800px) {
+
+  .login-container {
+    flex-direction: column;
+  }
+
+
+  .login-left {
+    width: 100%;
+
+    padding: 100px 40px 50px;
+  }
+
+
+  .login-right {
+    width: 100%;
+
+    height: 250px;
+  }
+
+
+  .navbar {
+    width: calc(100% - 40px);
+  }
+}
+
+
+/* ==================================================
+   SMALL TABLETS / PHONES
+================================================== */
+
+@media (max-width: 650px) {
+
+  .nav-links {
+    gap: 10px;
+  }
+
+}
+
+
+/* ==================================================
+   SMALL PHONES
+================================================== */
+
+@media (max-width: 500px) {
+
+  .page {
+    padding: 10px;
+  }
+
+
+  .navbar {
+    width: calc(100% - 30px);
+
+    top: 15px;
+  }
+
+
+  .logo {
+    font-size: 20px;
+  }
+
+
+  .nav-links {
+    gap: 8px;
+  }
+
+
+  .nav-links a {
+    font-size: 8px;
+  }
+
+
+  .login-left {
+    padding: 90px 25px 40px;
+  }
+
+
+  .login-left h1 {
+    font-size: 30px;
+
+    margin-bottom: 12px;
+  }
+
+
+  .login-right {
+    height: 200px;
+  }
+
+}

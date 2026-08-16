@@ -1,0 +1,989 @@
+/* ==================================================
+   GENERAL HOME PAGE
+================================================== */
+
+.home-page {
+  width: 100%;
+
+  min-height: 100vh;
+
+  background-color: #ffffff;
+
+  color: #222222;
+
+  font-family: Arial, sans-serif;
+
+  box-sizing: border-box;
+}
+
+
+/* ==================================================
+   NAVIGATION BAR
+================================================== */
+
+.home-navbar {
+  width: 100%;
+
+  height: 70px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 6%;
+
+  box-sizing: border-box;
+
+  background-color: #ffffff;
+}
+
+
+/* ==================================================
+   LOGO
+================================================== */
+
+.home-logo {
+  color: #006A4E;
+
+  font-size: 26px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* ==================================================
+   NAVIGATION LINKS
+================================================== */
+
+.home-nav-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+
+/* Normal links */
+
+.home-nav-links > a {
+  color: #222222;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+
+/* Hover */
+
+.home-nav-links > a:hover {
+  color: #006A4E;
+}
+
+
+/* Active */
+
+.home-nav-links > a.active {
+  color: #006A4E;
+
+  font-weight: bold;
+}
+
+
+/* Sign up */
+
+.home-nav-links .signup-nav {
+  color: #006A4E;
+
+  font-weight: bold;
+}
+
+
+/* ==================================================
+   DROPDOWN
+================================================== */
+
+.nav-dropdown {
+  position: relative;
+}
+
+
+/* Dropdown title */
+
+.nav-dropdown summary {
+  color: #222222;
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  list-style: none;
+
+  white-space: nowrap;
+}
+
+
+/* Remove browser arrow */
+
+.nav-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+
+/* Small arrow */
+
+.nav-dropdown summary::after {
+  content: " ▼";
+
+  font-size: 8px;
+}
+
+
+/* Open arrow */
+
+.nav-dropdown[open] summary::after {
+  content: " ▲";
+}
+
+
+/* Dropdown hover */
+
+.nav-dropdown summary:hover {
+  color: #006A4E;
+}
+
+
+/* ==================================================
+   DROPDOWN MENU
+================================================== */
+
+.dropdown-menu {
+  position: absolute;
+
+  top: 25px;
+
+  left: 0;
+
+  min-width: 170px;
+
+  background-color: #ffffff;
+
+  border-radius: 10px;
+
+  padding: 8px 0;
+
+  box-shadow:
+    0 8px 25px rgba(0, 106, 78, 0.15);
+
+  z-index: 100;
+}
+
+
+/* Dropdown links */
+
+.dropdown-menu a {
+  display: block;
+
+  padding: 9px 15px;
+
+  color: #333333;
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  white-space: nowrap;
+}
+
+
+/* Dropdown hover */
+
+.dropdown-menu a:hover {
+  background-color: #f0f7f5;
+
+  color: #006A4E;
+}
+
+
+/* ==================================================
+   WELCOME SECTION
+================================================== */
+
+.welcome-section {
+  width: 88%;
+
+  min-height: 430px;
+
+  margin: 20px auto 70px auto;
+
+  background-color: #f4faf8;
+
+  border-radius: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+
+/* ==================================================
+   WELCOME TEXT
+================================================== */
+
+.welcome-text {
+  width: 55%;
+
+  padding: 60px 70px;
+
+  box-sizing: border-box;
+
+  z-index: 2;
+}
+
+
+/* Small heading */
+
+.small-title {
+  color: #006A4E;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 15px;
+}
+
+
+/* Main heading */
+
+.welcome-text h1 {
+  color: #006A4E;
+
+  font-size: clamp(38px, 5vw, 58px);
+
+  line-height: 1.1;
+
+  font-weight: 600;
+
+  margin: 0 0 25px 0;
+}
+
+
+/* Description */
+
+.welcome-description {
+  color: #555555;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  max-width: 430px;
+
+  margin-bottom: 30px;
+}
+
+
+/* ==================================================
+   EMERGENCY BUTTON
+================================================== */
+
+.emergency-button {
+  border: none;
+
+  background-color: #006A4E;
+
+  color: #ffffff;
+
+  padding: 13px 25px;
+
+  border-radius: 25px;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.emergency-button:hover {
+  background-color: #004f3a;
+
+  transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   DECORATIVE SHAPES
+================================================== */
+
+.welcome-shape {
+  width: 45%;
+
+  height: 100%;
+
+  position: absolute;
+
+  right: 0;
+
+  top: 0;
+
+  overflow: hidden;
+
+  background-color: #006A4E;
+}
+
+
+/* Large circle */
+
+.circle-one {
+  width: 300px;
+
+  height: 300px;
+
+  border-radius: 50%;
+
+  background-color: #008f6a;
+
+  position: absolute;
+
+  top: -80px;
+
+  right: -50px;
+}
+
+
+/* Smaller circle */
+
+.circle-two {
+  width: 180px;
+
+  height: 180px;
+
+  border-radius: 50%;
+
+  background-color: #00a878;
+
+  position: absolute;
+
+  bottom: -50px;
+
+  left: 40px;
+}
+
+
+/* ==================================================
+   SERVICES SECTION
+================================================== */
+
+.services-section {
+  width: 88%;
+
+  margin: 0 auto 80px auto;
+
+  text-align: center;
+}
+
+
+.services-section h2,
+.disaster-section h2 {
+  color: #006A4E;
+
+  font-size: 30px;
+
+  font-weight: 600;
+
+  margin-bottom: 10px;
+}
+
+
+/* Section description */
+
+.section-description {
+  color: #777777;
+
+  font-size: 13px;
+
+  margin-bottom: 35px;
+}
+
+
+/* ==================================================
+   SERVICES GRID
+================================================== */
+
+.services-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+
+/* Service card */
+
+.service-card {
+  background-color: #ffffff;
+
+  border-radius: 18px;
+
+  padding: 30px 20px;
+
+  box-shadow:
+    0 5px 20px rgba(0, 106, 78, 0.10);
+
+  transition: 0.2s;
+}
+
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+
+/* Icon */
+
+.service-icon {
+  font-size: 38px;
+
+  margin-bottom: 15px;
+}
+
+
+/* Title */
+
+.service-card h3 {
+  color: #006A4E;
+
+  font-size: 17px;
+
+  margin-bottom: 10px;
+}
+
+
+/* Description */
+
+.service-card p {
+  color: #777777;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+  min-height: 35px;
+}
+
+
+/* Button */
+
+.service-card button {
+  border: none;
+
+  background-color: #006A4E;
+
+  color: #ffffff;
+
+  border-radius: 20px;
+
+  padding: 8px 22px;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  margin-top: 12px;
+}
+
+
+.service-card button:hover {
+  background-color: #004f3a;
+}
+
+
+/* ==================================================
+   DISASTER SECTION
+================================================== */
+
+.disaster-section {
+  width: 88%;
+
+  margin: 0 auto 80px auto;
+
+  text-align: center;
+}
+
+
+/* ==================================================
+   DISASTER GRID
+================================================== */
+
+.disaster-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+
+/* Disaster card */
+
+.disaster-card {
+  display: flex;
+
+  align-items: center;
+
+  text-align: left;
+
+  gap: 20px;
+
+  background-color: #f4faf8;
+
+  border-radius: 18px;
+
+  padding: 22px;
+}
+
+
+/* Disaster icon */
+
+.disaster-icon {
+  font-size: 35px;
+}
+
+
+/* Disaster title */
+
+.disaster-card h3 {
+  color: #006A4E;
+
+  font-size: 16px;
+
+  margin-bottom: 7px;
+}
+
+
+/* Disaster description */
+
+.disaster-card p {
+  color: #777777;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+  margin: 0;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.home-footer {
+  width: 100%;
+
+  background-color: #006A4E;
+
+  color: #ffffff;
+
+  text-align: center;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+
+.home-footer p {
+  font-size: 11px;
+
+  margin: 0;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+  .home-nav-links {
+    gap: 14px;
+  }
+
+
+  .home-nav-links > a,
+  .nav-dropdown summary {
+    font-size: 10px;
+  }
+
+
+  .welcome-text {
+    padding: 50px;
+  }
+
+
+  .services-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+
+  .home-navbar {
+    height: auto;
+
+    padding: 20px;
+
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+
+  .home-nav-links {
+    width: 100%;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+  }
+
+
+  .welcome-section {
+    width: 94%;
+
+    min-height: 600px;
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .welcome-text {
+    width: 100%;
+
+    padding: 45px 30px;
+  }
+
+
+  .welcome-shape {
+    width: 100%;
+
+    height: 200px;
+
+    position: relative;
+  }
+
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .disaster-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+/* =========================================
+   NAVIGATION DROPDOWN
+========================================= */
+
+.nav-dropdown {
+  position: relative;
+}
+
+
+/* Main menu text */
+
+.dropdown-title {
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+
+/* Arrow */
+
+.arrow {
+  font-size: 9px;
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+
+
+/* =========================================
+   DROPDOWN MENU
+========================================= */
+
+.dropdown-menu {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+
+  min-width: 180px;
+
+  background-color: white;
+
+  border-radius: 8px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+  padding: 8px 0;
+
+  display: none;
+
+  z-index: 100;
+}
+
+
+/* Dropdown links */
+
+.dropdown-menu a {
+  display: block;
+
+  padding: 10px 15px;
+
+  color: #222222;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+}
+
+
+/* Hover over dropdown items */
+
+.dropdown-menu a:hover {
+  background-color: #f0f7f5;
+
+  color: #006A4E;
+}
+
+
+/* =========================================
+   OPEN DROPDOWN WHEN MOUSE HOVERS
+========================================= */
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+/* Rotate arrow when hovering */
+
+.nav-dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
+
+
+/* Make sure dropdown doesn't disappear
+   when moving mouse from title to menu */
+
+.nav-dropdown {
+  padding-bottom: 10px;
+}
+
+
+/* =========================================
+   NAVIGATION LINK HOVER
+========================================= */
+
+.home-nav-links > a:hover,
+.dropdown-title:hover {
+  color: #006A4E;
+}
+/* =========================================
+   MAKE DROPDOWN TITLES LOOK LIKE NAV LINKS
+========================================= */
+
+.dropdown-title {
+  text-decoration: none;
+  font-size: clamp(9px, 1vw, 12px);
+  font-weight: 500;
+  color: #222222;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+
+/* Same green color when active/hovered */
+
+.dropdown-title:hover {
+  color: #006A4E;
+}
+
+
+/* Keep the arrow small */
+
+.dropdown-title .arrow {
+  font-size: 8px;
+  margin-left: 4px;
+}
+
+
+/* =========================================
+   DROPDOWN POSITION
+========================================= */
+
+.nav-dropdown {
+  position: relative;
+}
+
+
+/* Dropdown itself */
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  min-width: 180px;
+
+  background-color: white;
+
+  border-radius: 8px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+  padding: 8px 0;
+
+  display: none;
+
+  z-index: 100;
+}
+
+
+/* Show when hovering */
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+/* Dropdown links */
+
+.dropdown-menu a {
+  display: block;
+
+  padding: 10px 15px;
+
+  color: #222222;
+
+  text-decoration: none;
+
+  font-size: 12px;
+}
+
+
+/* Dropdown link hover */
+
+.dropdown-menu a:hover {
+  background-color: #f0f7f5;
+  color: #006A4E;
+}
+
+/* ==================================================
+   GREEN & WHITE ICONS
+================================================== */
+
+.service-icon,
+.disaster-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #006A4E;
+
+    background-color: #E9F5F1;
+
+    border-radius: 50%;
+}
+
+
+/* Emergency service icons */
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 18px;
+
+    font-size: 27px;
+}
+
+
+/* Disaster icons */
+
+.disaster-icon {
+    width: 52px;
+    height: 52px;
+
+    flex-shrink: 0;
+
+    font-size: 22px;
+}
+
+
+/* Emergency button icon */
+
+.emergency-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+}
+
+
+.emergency-button svg {
+    font-size: 15px;
+}
+
+.home-nav-links a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.home-nav-links a svg {
+    color: #006A4E;
+}
