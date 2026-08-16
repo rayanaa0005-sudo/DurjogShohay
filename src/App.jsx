@@ -14,6 +14,11 @@ import Shelters from "./pages/Shelters";
 import VolunteerRecruitment from "./pages/VolunteerRecruitment";
 import Directory from "./pages/Directory";
 
+// Mithila's pages
+import Donation from "./pages/Donation";
+import Rehabilitation from "./pages/Rehabilitation";
+import TrackDonation from "./pages/TrackDonation";
+
 
 function App() {
 
@@ -91,6 +96,28 @@ function App() {
           path="/directory"
           element={<Directory />}
         />
+
+        {/* =========================
+    MITHILA'S PAGES
+========================= */}
+
+{/* DONATION */}
+<Route
+  path="/donation"
+  element={<Donation />}
+/>
+
+{/* REHABILITATION */}
+<Route
+  path="/rehabilitation"
+  element={<Rehabilitation />}
+/>
+
+{/* TRACK DONATION */}
+<Route
+  path="/track-donation"
+  element={<TrackDonation />}
+/>
 
       </Routes>
 

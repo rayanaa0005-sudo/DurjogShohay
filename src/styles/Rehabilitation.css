@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-color: white;
+}
+
+
+
+.rehabilitation-page {
+    min-height: 100vh;
+    width: 100%;
+
+    background-color: white;
+
+    padding: 100px 8% 50px;
+
+    text-align: center;
+}
+.site-logo {
+    position: absolute;
+    top: 25px;
+    left: 40px;
+
+    color: #00543F;
+    font-size: 24px;
+    font-weight: 500;
+
+    transform: scaleY(1.15);
+    transform-origin: top left;
+}
+
+
+.rehabilitation-page h1 {
+    color: #006A4E;
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+.rehabilitation-page h2 {
+    color: #333333;
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+.rehabilitation-page>p {
+    color: #555555;
+
+    margin-bottom: 30px;
+}
+
+
+
+
+.rehabilitation-page label {
+    display: block;
+
+    text-align: left;
+
+    margin-top: 20px;
+    margin-bottom: 7px;
+
+    color: #006A4E;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+
+
+.rehabilitation-page select,
+.rehabilitation-page input,
+.rehabilitation-page textarea {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #cccccc;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    background-color: white;
+
+    color: #333333;
+}
+
+
+
+.rehabilitation-page textarea {
+    height: 120px;
+
+    resize: vertical;
+}
+
+
+
+.rehabilitation-page select:focus,
+.rehabilitation-page input:focus,
+.rehabilitation-page textarea:focus {
+    outline: none;
+
+    border: 2px solid #006A4E;
+}
+
+
+
+.rehabilitation-page>button {
+    margin-top: 25px;
+
+    padding: 14px 45px;
+
+    background-color: #006A4E;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.rehabilitation-page>button:hover {
+    background-color: #004d39;
+}
+
+
+
+
+.rehabilitation-page>h2:nth-of-type(2) {
+    margin-top: 50px;
+
+    color: #006A4E;
+}
+
+
+.rehab-post {
+    max-width: 600px;
+
+    margin: 20px auto;
+
+    padding: 25px;
+
+    border: 2px solid #006A4E;
+
+    border-radius: 10px;
+
+    background-color: white;
+
+    text-align: left;
+}
+
+.rehab-post h3 {
+    color: #006A4E;
+
+    margin-bottom: 10px;
+}
+
+.rehab-post h4 {
+    color: #333333;
+
+    font-size: 18px;
+
+    margin-bottom: 10px;
+}
+
+.rehab-post p {
+    color: #555555;
+
+    margin-bottom: 20px;
+}
+
+
+
+
+.rehab-post button {
+    padding: 10px 25px;
+
+    background-color: #006A4E;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.rehab-post button:hover {
+    background-color: #004d39;
+}
+
+
+
+
+@media (max-width: 600px) {
+
+    .rehabilitation-page {
+        padding: 90px 20px 30px;
+    }
+
+    .rehabilitation-page h1 {
+        font-size: 30px;
+    }
+
+    .rehabilitation-page h2 {
+        font-size: 18px;
+    }
+
+    .rehab-post {
+        padding: 20px;
+    }
+}

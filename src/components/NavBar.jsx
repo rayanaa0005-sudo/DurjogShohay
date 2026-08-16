@@ -35,8 +35,8 @@ function NavBar() {
               Organisations
             </Link>
 
-            <Link to="/volunteer">
-              Volunteer
+            <Link to="/rehabilitation">
+              Rehabilitation
             </Link>
           </div>
         </div>
@@ -53,6 +53,10 @@ function NavBar() {
             <Link to="/volunteer">
               Volunteer
             </Link>
+
+            <Link to="/donation">
+              Donate
+            </Link>
           </div>
         </div>
 
@@ -65,6 +69,10 @@ function NavBar() {
           </div>
 
           <div className="dropdown-menu">
+            <Link to="/track-donation">
+              Track My Donation
+            </Link>
+
             <Link to="/track">
               Track Requests
             </Link>
