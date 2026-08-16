@@ -5,7 +5,7 @@ import "../styles/Shelters.css";
 const Shelters = () => {
     const [selectedLocation, setSelectedLocation] = useState("");
 
-    const shelters = {
+    const shelters = { /*object (mapping of city - shelters)*/
         Dhaka: [
             {
                 name: "Dhaka Relief Shelter",
@@ -112,6 +112,7 @@ const Shelters = () => {
         
     };
 
+    //react component returns html/UI. it helps us to do the work with minimum code. easy to understand.
     return (
         <div>
             <NavBar />
@@ -129,6 +130,10 @@ const Shelters = () => {
 
                     <select value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)} >
                         <option value="">Select a location</option>
+                        
+                        {/* {shelters && Object.keys(shelters).map( (cityName) => (
+                            <option value={cityName}>{cityName}</option>
+                        ))} */}
                         <option value="Dhaka">Dhaka</option>
                         <option value="Chittagong">Chittagong</option>
                         <option value="Sylhet">Sylhet</option>
@@ -142,7 +147,7 @@ const Shelters = () => {
 
                 {selectedLocation && (
                     <div className="shelter-section">
-                        
+
                         <h2>Shelters in {selectedLocation}</h2>
 
                         {shelters[selectedLocation].map((shelter, index) => (
