@@ -20,27 +20,54 @@ function Signup() {
 
 
   
-  const handleSignup = (e) => {
+const handleSignup = async (e) => {
 
-    e.preventDefault();
+  e.preventDefault();
 
+  
+  if (password !== confirmPassword) {
 
-    // Check if passwords match
-    if (password !== confirmPassword) {
+    alert("Passwords do not match!");
 
-      alert("Passwords do not match!");
+    return;
+  }
 
-      return;
+  try {
+
+    const response = await fetch("http://localhost:5000/api/auth/signup", {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        password: password
+      })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+
+      alert(data.message);
+
+      navigate("/login");
+
+    } else {
+
+      alert(data.message);
     }
 
+  } catch (error) {
 
-    
-    alert("Account created successfully!");
+    console.log(error);
 
-
-    
-    navigate("/login");
-  };
+    alert("Could not connect to the server.");
+  }
+};
 
 
   return (
