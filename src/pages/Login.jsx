@@ -8,19 +8,19 @@ function Login() {
 
   const navigate = useNavigate();
 
-  // Input values
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // Error messages
+  
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  // Show/hide password
+  
   const [showPassword, setShowPassword] = useState(false);
 
 
-  // Login button
+  
   const handleLogin = (e) => {
 
     e.preventDefault();
@@ -31,7 +31,7 @@ function Login() {
     let hasError = false;
 
 
-    // Check email
+    
     if (email === "") {
 
       setEmailError("Email is required");
@@ -63,7 +63,7 @@ function Login() {
     }
 
 
-    // Stop if there is an error
+    
     if (hasError) {
       return;
     }
@@ -81,9 +81,7 @@ function Login() {
     <div className="page">
 
 
-      {/* =================================
-          NAVIGATION BAR
-      ================================= */}
+      
 
       <nav className="navbar">
 
@@ -118,16 +116,11 @@ function Login() {
       </nav>
 
 
-      {/* =================================
-          MAIN LOGIN CONTAINER
-      ================================= */}
+      
 
       <div className="login-container">
 
 
-        {/* =================================
-            LOGIN FORM - LEFT
-        ================================= */}
 
         <div className="login-left">
 
@@ -240,7 +233,7 @@ function Login() {
             </div>
 
 
-            {/* FORGOT PASSWORD */}
+            
 
             <div className="forgot-password">
 
@@ -279,9 +272,8 @@ function Login() {
         </div>
 
 
-        {/* =================================
-            GREEN PANEL - RIGHT
-        ================================= */}
+        
+       
 
         <div className="login-right">
 

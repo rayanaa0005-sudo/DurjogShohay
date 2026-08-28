@@ -18,9 +18,7 @@ function Profile() {
 
     <div className="profile-page">
 
-      {/* ==============================
-          NAVIGATION BAR
-      ============================== */}
+      
 
       <nav className="home-navbar">
 
@@ -63,10 +61,7 @@ function Profile() {
       </nav>
 
 
-      {/* ==============================
-          PROFILE HEADER
-      ============================== */}
-
+      
       <section className="profile-header">
 
         <p className="profile-small-title">
@@ -85,9 +80,7 @@ function Profile() {
       </section>
 
 
-      {/* ==============================
-          PROFILE CONTENT
-      ============================== */}
+      
 
       <main className="profile-container">
 
@@ -274,9 +267,7 @@ function Profile() {
       </main>
 
 
-      {/* ==============================
-          FOOTER
-      ============================== */}
+      
 
       <footer className="home-footer">
 

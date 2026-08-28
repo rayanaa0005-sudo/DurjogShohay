@@ -45,9 +45,7 @@ function ContactUs() {
     <div className="contact-page">
 
 
-      {/* ==============================
-          NAVIGATION BAR
-      ============================== */}
+      
 
       <nav className="contact-navbar">
 
@@ -99,9 +97,7 @@ function ContactUs() {
       </nav>
 
 
-      {/* ==============================
-          CONTACT HERO
-      ============================== */}
+    
 
       <section className="contact-hero">
 
@@ -122,16 +118,12 @@ function ContactUs() {
       </section>
 
 
-      {/* ==============================
-          CONTACT CONTENT
-      ============================== */}
+    
 
       <section className="contact-section">
 
 
-        {/* ==============================
-            CONTACT INFORMATION
-        ============================== */}
+        
 
         <div className="contact-information">
 
@@ -222,9 +214,7 @@ function ContactUs() {
         </div>
 
 
-        {/* ==============================
-            CONTACT FORM
-        ============================== */}
+        
 
         <div className="contact-form-container">
 
@@ -321,10 +311,7 @@ function ContactUs() {
       </section>
 
 
-      {/* ==============================
-          FOOTER
-      ============================== */}
-
+      
       <footer className="contact-footer">
 
         <p>

@@ -9,14 +9,14 @@ function ForgotPassword() {
   const [message, setMessage] = useState("");
 
 
-  // When Send Email is clicked
+  
   const handleSubmit = (e) => {
 
     e.preventDefault();
 
     setMessage("");
 
-    // Check if email is empty
+    
     if (email === "") {
 
       setMessage("Please enter your email address.");
@@ -25,7 +25,7 @@ function ForgotPassword() {
     }
 
 
-    // Simple email check
+    
     if (!email.includes("@")) {
 
       setMessage("Please enter a valid email address.");
@@ -34,7 +34,7 @@ function ForgotPassword() {
     }
 
 
-    // Frontend only
+    
     setMessage(
       "Password reset link has been sent to your email."
     );
@@ -46,18 +46,14 @@ function ForgotPassword() {
     <div className="forgot-page">
 
 
-      {/* ==============================
-          LOGO
-      ============================== */}
+      
 
       <div className="forgot-logo">
         DurjogShohay
       </div>
 
 
-      {/* ==============================
-          MAIN CONTAINER
-      ============================== */}
+      
 
       <div className="forgot-container">
 
@@ -79,10 +75,7 @@ function ForgotPassword() {
         </p>
 
 
-        {/* ==============================
-            FORM
-        ============================== */}
-
+        
         <form onSubmit={handleSubmit}>
 
 
@@ -130,9 +123,7 @@ function ForgotPassword() {
         </form>
 
 
-        {/* ==============================
-            BACK TO LOGIN
-        ============================== */}
+        
 
         <Link
           to="/login"
