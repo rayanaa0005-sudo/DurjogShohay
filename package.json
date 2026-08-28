@@ -40,5 +40,19 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.5",
     "vite": "^8.2.1"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rayanaa0005-sudo/DurjogShohay.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rayanaa0005-sudo/DurjogShohay/issues"
+  },
+  "homepage": "https://github.com/rayanaa0005-sudo/DurjogShohay#readme"
 }
