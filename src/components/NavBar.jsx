@@ -8,58 +8,22 @@ function NavBar() {
     <nav className="home-navbar">
 
       {/* Logo */}
-      <div className="home-logo">
-        DurjogShohay
-      </div>
+      <div className="home-logo">DurjogShohay</div>
 
       {/* Navigation Links */}
       <div className="home-nav-links">
 
-        <Link to="/" className="active">
-          Home
-        </Link>
+        <Link to="/" className="active">Home</Link>
 
-        {/* GET HELP */}
-        <div className="nav-dropdown">
-          <div className="dropdown-title">
-            Get Help
-            <span className="arrow">▼</span>
-          </div>
+        <Link to="/shelters">Shelters</Link>
 
-          <div className="dropdown-menu">
-            <Link to="/shelters">
-              Shelters
-            </Link>
+        <Link to="/directory"> Organisations</Link>
 
-            <Link to="/directory">
-              Organisations
-            </Link>
+        <Link to="/rehabilitation">Rehabilitation</Link>
 
-            <Link to="/rehabilitation">
-              Rehabilitation
-            </Link>
-          </div>
-        </div>
+        <Link to="/volunteer">Volunteer</Link>
 
-
-        {/* GIVE HELP */}
-        <div className="nav-dropdown">
-          <div className="dropdown-title">
-            Give Help
-            <span className="arrow">▼</span>
-          </div>
-
-          <div className="dropdown-menu">
-            <Link to="/volunteer">
-              Volunteer
-            </Link>
-
-            <Link to="/donation">
-              Donate
-            </Link>
-          </div>
-        </div>
-
+        <Link to="/donation">Donate</Link>
 
         {/* TRACK */}
         <div className="nav-dropdown">
@@ -72,13 +36,8 @@ function NavBar() {
             <Link to="/track-donation">
               Track My Donation
             </Link>
-
-            <Link to="/track">
-              Track Requests
-            </Link>
           </div>
         </div>
-
 
         {/* COMMUNITY */}
         <div className="nav-dropdown">
@@ -94,12 +53,10 @@ function NavBar() {
           </div>
         </div>
 
-
         {/* ABOUT */}
         <Link to="/about">
           About Us
         </Link>
-
 
         {/* PROFILE */}
         <Link to="/profile">
@@ -107,12 +64,10 @@ function NavBar() {
           Profile
         </Link>
 
-
         {/* LOGIN */}
         <Link to="/login">
           Login
         </Link>
-
 
         {/* SIGN UP */}
         <Link to="/signup" className="signup-nav">

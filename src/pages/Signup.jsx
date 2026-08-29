@@ -8,18 +8,18 @@ function Signup() {
 
   const navigate = useNavigate();
 
-  // Store the input values
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // Show or hide passwords
+  
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
 
-  // When Create Account is clicked
+  
   const handleSignup = (e) => {
 
     e.preventDefault();
@@ -34,11 +34,11 @@ function Signup() {
     }
 
 
-    // Frontend only
+    
     alert("Account created successfully!");
 
 
-    // Go to Login page
+    
     navigate("/login");
   };
 
@@ -47,10 +47,7 @@ function Signup() {
 
     <div className="page">
 
-      {/* ==============================
-          NAVIGATION BAR
-      ============================== */}
-
+      
       <nav className="navbar">
 
         <div className="logo">
@@ -77,16 +74,12 @@ function Signup() {
       </nav>
 
 
-      {/* ==============================
-          MAIN SIGN UP CONTAINER
-      ============================== */}
+  
 
       <div className="signup-container">
 
 
-        {/* ==============================
-            LEFT SIDE
-        ============================== */}
+       
 
         <div className="signup-left">
 
@@ -248,9 +241,7 @@ function Signup() {
         </div>
 
 
-        {/* ==============================
-            RIGHT GREEN PANEL
-        ============================== */}
+       
 
         <div className="signup-right">
 

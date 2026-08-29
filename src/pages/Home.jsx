@@ -33,9 +33,7 @@ function Home() {
       <NavBar />
 
 
-      {/* ==============================
-          WELCOME SECTION
-      ============================== */}
+      
 
       <section className="welcome-section">
 
@@ -82,9 +80,7 @@ function Home() {
       </section>
 
 
-      {/* ==============================
-          EMERGENCY SERVICES
-      ============================== */}
+      
 
       <section className="services-section">
 
@@ -204,9 +200,7 @@ function Home() {
       </section>
 
 
-      {/* ==============================
-          DISASTER INFORMATION
-      ============================== */}
+      
 
       <section className="disaster-section">
 
@@ -320,9 +314,7 @@ function Home() {
       </section>
 
 
-      {/* ==============================
-          FOOTER
-      ============================== */}
+      
 
       <footer className="home-footer">
 

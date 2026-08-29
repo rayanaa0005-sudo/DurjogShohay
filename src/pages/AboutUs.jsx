@@ -15,9 +15,7 @@ function AboutUs() {
   return (
     <div className="about-page">
 
-      {/* ==============================
-          NAVIGATION BAR
-      ============================== */}
+      
 
       <nav className="home-navbar">
 
@@ -53,10 +51,7 @@ function AboutUs() {
       </nav>
 
 
-      {/* ==============================
-          ABOUT US HERO
-      ============================== */}
-
+      
       <section className="about-hero">
 
         <p className="about-small-title">
@@ -79,9 +74,7 @@ function AboutUs() {
       </section>
 
 
-      {/* ==============================
-          OUR MISSION
-      ============================== */}
+      
 
       <section className="about-section">
 
@@ -134,9 +127,7 @@ function AboutUs() {
       </section>
 
 
-      {/* ==============================
-          WHAT WE PROVIDE
-      ============================== */}
+      
 
       <section className="features-section">
 
@@ -162,8 +153,8 @@ function AboutUs() {
           <div className="about-card">
 
            <div className="about-card-icon">
-  <FaExclamationTriangle />
-</div>
+          <FaExclamationTriangle />
+          </div>
 
             <h3>
               Emergency Help
@@ -241,9 +232,7 @@ function AboutUs() {
       </section>
 
 
-      {/* ==============================
-          OUR VISION
-      ============================== */}
+      
 
       <section className="vision-section">
 
@@ -268,9 +257,7 @@ function AboutUs() {
       </section>
 
 
-      {/* ==============================
-          FOOTER
-      ============================== */}
+      
 
       <footer className="home-footer">
 
