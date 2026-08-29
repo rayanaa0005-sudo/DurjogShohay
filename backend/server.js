@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
-
+const authRoutes = require("./routes/auth");
 const loginRoutes = require("./routes/loginRoutes");
 
 const app = express();
@@ -9,6 +9,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/api", loginRoutes);
+app.use("/api", authRoutes);
 
 app.get("/", (req, res) => {
     res.send("DurjogShohay Backend is Running!");
