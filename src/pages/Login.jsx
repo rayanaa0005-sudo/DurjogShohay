@@ -20,61 +20,60 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
 
-  
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
+  e.preventDefault();
 
-    e.preventDefault();
+  setEmailError("");
+  setPasswordError("");
 
-    setEmailError("");
-    setPasswordError("");
+  let hasError = false;
 
-    let hasError = false;
+  if (email === "") {
+    setEmailError("Email is required");
+    hasError = true;
+  } else if (!email.includes("@")) {
+    setEmailError("Please enter a valid email");
+    hasError = true;
+  }
 
+  if (password === "") {
+    setPasswordError("Password is required");
+    hasError = true;
+  } else if (password.length < 6) {
+    setPasswordError("Password must be at least 6 characters");
+    hasError = true;
+  }
 
-    
-    if (email === "") {
+  if (hasError) {
+    return;
+  }
 
-      setEmailError("Email is required");
+  try {
+    const response = await fetch("http://localhost:5001/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
 
-      hasError = true;
+    const data = await response.json();
 
-    } else if (!email.includes("@")) {
-
-      setEmailError("Please enter a valid email");
-
-      hasError = true;
-    }
-
-
-    // Check password
-    if (password === "") {
-
-      setPasswordError("Password is required");
-
-      hasError = true;
-
-    } else if (password.length < 6) {
-
-      setPasswordError(
-        "Password must be at least 6 characters"
-      );
-
-      hasError = true;
-    }
-
-
-    
-    if (hasError) {
+    if (!response.ok) {
+      alert(data.message || "Login failed");
       return;
     }
 
-
-    // Frontend only
-    alert("Login successful!");
-
+    alert(data.message || "Login successful!");
     navigate("/");
-  };
-
+  } catch (error) {
+    console.error("Login error:", error);
+    alert("Cannot connect to the server. Make sure the backend is running.");
+  }
+};
 
   return (
 
