@@ -174,7 +174,7 @@ function Login() {
             </div>
 
 
-            {/* PASSWORD */}
+            
 
             <div className="input-group">
 
@@ -243,7 +243,7 @@ function Login() {
             </div>
 
 
-            {/* LOGIN BUTTON */}
+            
 
             <button
               type="submit"
@@ -253,7 +253,7 @@ function Login() {
             </button>
 
 
-            {/* SIGN UP */}
+            
 
             <p className="login-text">
 

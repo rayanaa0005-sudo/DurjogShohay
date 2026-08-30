@@ -91,7 +91,7 @@ function Signup() {
 
           <form onSubmit={handleSignup}>
 
-            {/* Full Name */}
+            
             <div className="input-group">
 
               <label>Full Name</label>
@@ -106,7 +106,7 @@ function Signup() {
 
             </div>
 
-            {/* Email */}
+            
             <div className="input-group">
 
               <label>Email</label>
@@ -121,10 +121,10 @@ function Signup() {
 
             </div>
 
-            {/* Password Row */}
+            
             <div className="password-row">
 
-              {/* Password */}
+              
               <div className="input-group password-group">
 
                 <label>Password</label>
@@ -153,7 +153,7 @@ function Signup() {
 
               </div>
 
-              {/* Confirm Password */}
+              
               <div className="input-group password-group">
 
                 <label>Confirm Password</label>
@@ -192,7 +192,7 @@ function Signup() {
 
             </div>
 
-            {/* Create Account Button */}
+            
             <button
               type="submit"
               className="create-button"
@@ -200,7 +200,7 @@ function Signup() {
               Create Account
             </button>
 
-            {/* Login */}
+            
             <p className="login-text">
               Already have an account?{" "}
               <Link to="/login">
