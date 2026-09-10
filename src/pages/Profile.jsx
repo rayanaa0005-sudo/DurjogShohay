@@ -9,16 +9,22 @@ import {
   FaEdit
 } from "react-icons/fa";
 
+import { useAuth } from "../context/AuthContext.jsx";
+
 import "../styles/Profile.css";
 
 
 function Profile() {
 
+  const { user } = useAuth();
+
+  if (!user) {
+    return <p>Loading profile...</p>;
+  }
+
   return (
 
     <div className="profile-page">
-
-      
 
       <nav className="home-navbar">
 
@@ -61,7 +67,6 @@ function Profile() {
       </nav>
 
 
-      
       <section className="profile-header">
 
         <p className="profile-small-title">
@@ -80,8 +85,6 @@ function Profile() {
       </section>
 
 
-      
-
       <main className="profile-container">
 
 
@@ -94,7 +97,7 @@ function Profile() {
           </div>
 
           <h2>
-            User Name
+            {user.name}
           </h2>
 
           <p className="profile-role">
@@ -107,9 +110,7 @@ function Profile() {
           </button>
 
         </div>
-
-
-        {/* PERSONAL INFORMATION */}
+                {/* PERSONAL INFORMATION */}
 
         <div className="information-card">
 
@@ -148,7 +149,7 @@ function Profile() {
                 <FaUser />
 
                 <span>
-                  User Name
+                  {user.name}
                 </span>
 
               </div>
@@ -169,7 +170,7 @@ function Profile() {
                 <FaEnvelope />
 
                 <span>
-                  user@example.com
+                  {user.email}
                 </span>
 
               </div>
@@ -190,7 +191,7 @@ function Profile() {
                 <FaPhone />
 
                 <span>
-                  01XXXXXXXXX
+                  {user.phone || "Not provided"}
                 </span>
 
               </div>
@@ -211,7 +212,7 @@ function Profile() {
                 <FaTint />
 
                 <span>
-                  O+
+                  {user.bloodGroup || "Not provided"}
                 </span>
 
               </div>
@@ -232,7 +233,7 @@ function Profile() {
                 <FaMapMarkerAlt />
 
                 <span>
-                  Dhaka
+                  {user.district || "Not provided"}
                 </span>
 
               </div>
@@ -260,14 +261,13 @@ function Profile() {
 
             </div>
 
+
           </div>
 
         </div>
 
       </main>
 
-
-      
 
       <footer className="home-footer">
 

@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext.jsx";
+import PublicRoute from "./context/PublicRoute.jsx";
 import "./App.css";
 
 // Rayas pages
@@ -22,28 +24,38 @@ import TrackDonation from "./pages/TrackDonation";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Main pages */}
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/profile" element={<Profile />} />
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
 
-        {/* Tanha's pages */}
-        <Route path="/shelters" element={<Shelters />} />
-        <Route path="/volunteer" element={<VolunteerRecruitment />} />
-        <Route path="/directory" element={<Directory />} />
+          <Route path="/" element={<Home />} />
 
-        {/* Mithila's pages */}
-        <Route path="/donation" element={<Donation />} />
-        <Route path="/rehabilitation" element={<Rehabilitation />} />
-        <Route path="/track-donation" element={<TrackDonation />} />
-      </Routes>
-    </BrowserRouter>
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/profile" element={<Profile />} />
+
+          <Route path="/shelters" element={<Shelters />} />
+          <Route path="/volunteer" element={<VolunteerRecruitment />} />
+          <Route path="/directory" element={<Directory />} />
+
+          <Route path="/donation" element={<Donation />} />
+          <Route path="/rehabilitation" element={<Rehabilitation />} />
+          <Route path="/track-donation" element={<TrackDonation />} />
+
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

@@ -1,9 +1,8 @@
 const User = require("../models/User");
+const jwt = require("jsonwebtoken");
 
 const loginUser = async (req, res) => {
-
     try {
-
         const { email, password } = req.body;
 
         if (!email || !password) {
@@ -26,6 +25,25 @@ const loginUser = async (req, res) => {
             });
         }
 
+        const token = jwt.sign(
+            {
+                id: user._id,
+                name: user.name,
+                email: user.email
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: "1d"
+            }
+        );
+
+        res.cookie("token", token, {
+            httpOnly: true,
+            sameSite: "lax",
+            secure: false,
+            maxAge: 24 * 60 * 60 * 1000
+        });
+
         res.status(200).json({
             message: "Login successful!",
             user: {
@@ -36,7 +54,6 @@ const loginUser = async (req, res) => {
         });
 
     } catch (error) {
-
         console.log(error);
 
         res.status(500).json({

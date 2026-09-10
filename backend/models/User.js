@@ -15,6 +15,21 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+
+    phone: {
+        type: String,
+        default: ""
+    },
+
+    bloodGroup: {
+        type: String,
+        default: ""
+    },
+
+    district: {
+        type: String,
+        default: ""
     }
 });
 
