@@ -1,14 +1,22 @@
 const express = require("express");
 const User = require("../models/User");
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 const checkToken = require("../middleware/checktoken");
-
 
 const router = express.Router();
 
 // SIGNUP
 router.post("/signup", async (req, res) => {
     try {
-        const { name, email, password, phone, bloodGroup, district } = req.body;
+        const {
+            name,
+            email,
+            password,
+            phone,
+            bloodGroup,
+            district
+        } = req.body;
 
         const existingUser = await User.findOne({ email });
 
@@ -18,10 +26,12 @@ router.post("/signup", async (req, res) => {
             });
         }
 
+        const hashedPassword = await bcrypt.hash(password, 10);
+
         const newUser = new User({
             name,
             email,
-            password,
+            password: hashedPassword,
             phone,
             bloodGroup,
             district

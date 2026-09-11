@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 const loginUser = async (req, res) => {
     try {
@@ -19,7 +20,12 @@ const loginUser = async (req, res) => {
             });
         }
 
-        if (user.password !== password) {
+        const isPasswordValid = await bcrypt.compare(
+            password,
+            user.password
+        );
+
+        if (!isPasswordValid) {
             return res.status(401).json({
                 message: "Invalid email or password"
             });

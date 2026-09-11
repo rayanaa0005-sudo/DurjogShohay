@@ -3,8 +3,13 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
+
 const authRoutes = require("./routes/auth");
 const loginRoutes = require("./routes/loginRoutes");
+
+const volunteerRoutes = require("./routes/volunteer");
+const shelterRoutes = require("./routes/shelter");
+const organizationRoutes = require("./routes/organization");
 
 const app = express();
 
@@ -18,6 +23,10 @@ app.use(cookieParser());
 
 app.use("/api", loginRoutes);
 app.use("/api", authRoutes);
+
+app.use("/api", volunteerRoutes);
+app.use("/api", shelterRoutes);
+app.use("/api", organizationRoutes);
 
 app.get("/", (req, res) => {
     res.send("DurjogShohay Backend is Running!");

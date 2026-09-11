@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Signup.css";
@@ -58,44 +57,28 @@ function Signup() {
 
   return (
     <div className="page">
-
       <nav className="navbar">
-
         <div className="logo">
           DurjogShohay
         </div>
 
         <div className="nav-links">
-
-          <Link to="/">
-            Home
-          </Link>
-
-          <Link to="/login">
-            Login
-          </Link>
-
+          <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
           <Link to="/signup" className="active">
             Sign Up
           </Link>
-
         </div>
-
       </nav>
 
       <div className="signup-container">
-
         <div className="signup-left">
-
           <h1>Create Account</h1>
 
           <form onSubmit={handleSignup}>
 
-            
             <div className="input-group">
-
               <label>Full Name</label>
-
               <input
                 type="text"
                 placeholder="Enter your full name"
@@ -103,14 +86,10 @@ function Signup() {
                 onChange={(e) => setName(e.target.value)}
                 required
               />
-
             </div>
 
-            
             <div className="input-group">
-
               <label>Email</label>
-
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -118,19 +97,14 @@ function Signup() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-
             </div>
 
-            
             <div className="password-row">
 
-              
               <div className="input-group password-group">
-
                 <label>Password</label>
 
                 <div className="password-input">
-
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
@@ -142,30 +116,19 @@ function Signup() {
                   <button
                     type="button"
                     className="eye-button"
-                    onClick={() =>
-                      setShowPassword(!showPassword)
-                    }
+                    onClick={() => setShowPassword(!showPassword)}
                   >
-                    {showPassword ? "👁" : "👁"}
+                    👁
                   </button>
-
                 </div>
-
               </div>
 
-              
               <div className="input-group password-group">
-
                 <label>Confirm Password</label>
 
                 <div className="password-input">
-
                   <input
-                    type={
-                      showConfirmPassword
-                        ? "text"
-                        : "password"
-                    }
+                    type={showConfirmPassword ? "text" : "password"}
                     placeholder="Confirm password"
                     value={confirmPassword}
                     onChange={(e) =>
@@ -178,21 +141,16 @@ function Signup() {
                     type="button"
                     className="eye-button"
                     onClick={() =>
-                      setShowConfirmPassword(
-                        !showConfirmPassword
-                      )
+                      setShowConfirmPassword(!showConfirmPassword)
                     }
                   >
-                    {showConfirmPassword ? "👁" : "👁"}
+                    👁
                   </button>
-
                 </div>
-
               </div>
 
             </div>
 
-            
             <button
               type="submit"
               className="create-button"
@@ -200,7 +158,6 @@ function Signup() {
               Create Account
             </button>
 
-            
             <p className="login-text">
               Already have an account?{" "}
               <Link to="/login">
@@ -209,23 +166,17 @@ function Signup() {
             </p>
 
           </form>
-
         </div>
 
         <div className="signup-right">
-
           <div className="shape shape-one"></div>
           <div className="shape shape-two"></div>
           <div className="shape shape-three"></div>
           <div className="shape shape-four"></div>
-
         </div>
-
       </div>
-
     </div>
   );
 }
 
 export default Signup;
-
