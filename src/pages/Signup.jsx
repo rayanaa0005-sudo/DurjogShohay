@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import "../styles/Signup.css";
 
 
@@ -34,7 +33,7 @@ const handleSignup = async (e) => {
 
   try {
 
-    const response = await fetch("http://localhost:5000/api/auth/signup", {
+    const response = await fetch("http://localhost:5001/api/signup", {
       method: "POST",
 
       headers: {

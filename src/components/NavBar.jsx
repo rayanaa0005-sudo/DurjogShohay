@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 
 import "./NavBar.css";
@@ -13,68 +13,34 @@ function NavBar() {
       {/* Navigation Links */}
       <div className="home-nav-links">
 
-        <Link to="/" className="active">Home</Link>
+  <NavLink to="/">Home</NavLink>
 
-        <Link to="/shelters">Shelters</Link>
+  <NavLink to="/shelters">Shelters</NavLink>
 
-        <Link to="/directory"> Organisations</Link>
+  <NavLink to="/directory">Organisations</NavLink>
 
-        <Link to="/rehabilitation">Rehabilitation</Link>
+  <NavLink to="/rehabilitation">Rehabilitation</NavLink>
 
-        <Link to="/volunteer">Volunteer</Link>
+  <NavLink to="/volunteer">Volunteer</NavLink>
 
-        <Link to="/donation">Donate</Link>
+  <NavLink to="/donation">Donate</NavLink>
 
-        {/* TRACK */}
-        <div className="nav-dropdown">
-          <div className="dropdown-title">
-            Track
-            <span className="arrow">▼</span>
-          </div>
+  <NavLink to="/track-donation">Track</NavLink>
 
-          <div className="dropdown-menu">
-            <Link to="/track-donation">
-              Track My Donation
-            </Link>
-          </div>
-        </div>
+  <NavLink to="/about">About Us</NavLink>
 
-        {/* COMMUNITY */}
-        <div className="nav-dropdown">
-          <div className="dropdown-title">
-            Community
-            <span className="arrow">▼</span>
-          </div>
+  <NavLink to="/profile">
+    <FaUser />
+    Profile
+  </NavLink>
 
-          <div className="dropdown-menu">
-            <Link to="/community">
-              Community
-            </Link>
-          </div>
-        </div>
+  <NavLink to="/login">Login</NavLink>
 
-        {/* ABOUT */}
-        <Link to="/about">
-          About Us
-        </Link>
+  <NavLink to="/signup" className="signup-nav">
+    Sign Up
+  </NavLink>
 
-        {/* PROFILE */}
-        <Link to="/profile">
-          <FaUser />
-          Profile
-        </Link>
-
-        {/* LOGIN */}
-        <Link to="/login">
-          Login
-        </Link>
-
-        {/* SIGN UP */}
-        <Link to="/signup" className="signup-nav">
-          Sign Up
-        </Link>
-
-      </div>
+</div>
 
     </nav>
   );

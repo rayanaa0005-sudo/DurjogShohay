@@ -1,9 +1,16 @@
 const express = require("express");
 const User = require("../models/User");
-
+const mongoose = require("mongoose");
 const router = express.Router();
+const bcrypt = require("bcrypt");
+
+
+
+console.log("AUTH ROUTES FILE LOADED");
 
 router.post("/signup", async (req, res) => {
+
+    console.log("SIGNUP DATABASE:", mongoose.connection.db.databaseName);
 
     try {
 
@@ -17,10 +24,13 @@ router.post("/signup", async (req, res) => {
             });
         }
 
+        const hashedPassword = await bcrypt.hash(password, 10);
+        console.log("ORIGINAL PASSWORD:", password);
+        console.log("HASHED PASSWORD:", hashedPassword);
         const newUser = new User({
             name,
             email,
-            password
+            password: hashedPassword
         });
 
         await newUser.save();
