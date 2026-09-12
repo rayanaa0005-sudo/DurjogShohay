@@ -6,35 +6,57 @@ export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-
         const getProfile = async () => {
-
             try {
-
-                const response = await fetch("http://localhost:5001/api/profile", {
-                    credentials: "include"
-                });
+                const response = await fetch(
+                    "http://localhost:5001/api/profile",
+                    {
+                        credentials: "include"
+                    }
+                );
 
                 const data = await response.json();
 
                 if (response.ok) {
                     setUser(data.user);
+                } else {
+                    setUser(null);
                 }
-
             } catch (error) {
-
                 console.log("Not logged in");
-
+                setUser(null);
             }
-
         };
 
         getProfile();
-
     }, []);
 
+    const logout = async () => {
+        try {
+            const response = await fetch(
+                "http://localhost:5001/api/logout",
+                {
+                    method: "POST",
+                    credentials: "include"
+                }
+            );
+
+            if (response.ok) {
+                setUser(null);
+            }
+        } catch (error) {
+            console.log("Logout error:", error);
+        }
+    };
+
     return (
-        <AuthContext.Provider value={{ user, setUser }}>
+        <AuthContext.Provider
+            value={{
+                user,
+                setUser,
+                logout
+            }}
+        >
             {children}
         </AuthContext.Provider>
     );

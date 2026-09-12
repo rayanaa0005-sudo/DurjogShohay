@@ -1,48 +1,67 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
-require("dotenv").config();
+import { createContext, useContext, useEffect, useState } from "react";
 
-const authRoutes = require("./routes/auth");
-const loginRoutes = require("./routes/loginRoutes");
+const AuthContext = createContext();
 
-const volunteerRoutes = require("./routes/volunteer");
-const shelterRoutes = require("./routes/shelter");
-const organizationRoutes = require("./routes/organization");
+export function AuthProvider({ children }) {
+    const [user, setUser] = useState(null);
 
-const app = express();
+    useEffect(() => {
+        const getProfile = async () => {
+            try {
+                const response = await fetch(
+                    "http://localhost:5001/api/profile",
+                    {
+                        credentials: "include"
+                    }
+                );
 
-app.use(cors({
-    origin: "http://localhost:5174",
-    credentials: true
-}));
+                const data = await response.json();
 
-app.use(express.json());
-app.use(cookieParser());
+                if (response.ok) {
+                    setUser(data.user);
+                } else {
+                    setUser(null);
+                }
+            } catch (error) {
+                console.log("Not logged in");
+                setUser(null);
+            }
+        };
 
-app.use("/api", loginRoutes);
-app.use("/api", authRoutes);
+        getProfile();
+    }, []);
 
-app.use("/api", volunteerRoutes);
-app.use("/api", shelterRoutes);
-app.use("/api", organizationRoutes);
+    const logout = async () => {
+        try {
+            const response = await fetch(
+                "http://localhost:5001/api/logout",
+                {
+                    method: "POST",
+                    credentials: "include"
+                }
+            );
 
-app.get("/", (req, res) => {
-    res.send("DurjogShohay Backend is Running!");
-});
+            if (response.ok) {
+                setUser(null);
+            }
+        } catch (error) {
+            console.log("Logout error:", error);
+        }
+    };
 
-const PORT = 5001;
+    return (
+        <AuthContext.Provider
+            value={{
+                user,
+                setUser,
+                logout
+            }}
+        >
+            {children}
+        </AuthContext.Provider>
+    );
+}
 
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log("MongoDB connected successfully!");
-
-        app.listen(PORT, () => {
-            console.log("Server is running on port " + PORT);
-        });
-    })
-    .catch((error) => {
-        console.log("MongoDB connection failed:");
-        console.log(error.message);
-    });
+export function useAuth() {
+    return useContext(AuthContext);
+}

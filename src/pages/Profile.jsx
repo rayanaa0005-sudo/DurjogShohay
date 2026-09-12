@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   FaUser,
@@ -6,99 +6,74 @@ import {
   FaPhone,
   FaTint,
   FaMapMarkerAlt,
-  FaEdit
+  FaEdit,
+  FaSignOutAlt
 } from "react-icons/fa";
 
 import { useAuth } from "../context/AuthContext.jsx";
 
 import "../styles/Profile.css";
 
-
 function Profile() {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
-  const { user } = useAuth();
+  const handleLogout = async () => {
+    await logout();
+    navigate("/");
+  };
 
   if (!user) {
     return <p>Loading profile...</p>;
   }
 
   return (
-
     <div className="profile-page">
 
+      {/* NAVBAR */}
       <nav className="home-navbar">
-
         <div className="home-logo">
           DurjogShohay
         </div>
 
         <div className="home-nav-links">
-
-          <Link to="/">
-            Home
-          </Link>
-
-          <Link to="/get-help">
-            Get Help ▼
-          </Link>
-
-          <Link to="/give-help">
-            Give Help ▼
-          </Link>
-
-          <Link to="/track">
-            Track ▼
-          </Link>
-
-          <Link to="/community">
-            Community ▼
-          </Link>
-
-          <Link to="/about">
-            About Us
-          </Link>
-
+          <Link to="/">Home</Link>
+          <Link to="/get-help">Get Help ▼</Link>
+          <Link to="/give-help">Give Help ▼</Link>
+          <Link to="/track">Track ▼</Link>
+          <Link to="/community">Community ▼</Link>
+          <Link to="/about">About Us</Link>
           <Link to="/profile" className="active">
             Profile
           </Link>
-
         </div>
-
       </nav>
 
 
+      {/* PROFILE HEADER */}
       <section className="profile-header">
+        <p className="profile-small-title">YOUR ACCOUNT</p>
 
-        <p className="profile-small-title">
-          YOUR ACCOUNT
-        </p>
-
-        <h1>
-          My Profile
-        </h1>
+        <h1>My Profile</h1>
 
         <p>
           Manage your personal information and
           emergency details.
         </p>
-
       </section>
 
 
+      {/* MAIN CONTENT */}
       <main className="profile-container">
 
-
         {/* PROFILE CARD */}
-
         <div className="profile-card">
 
           <div className="profile-picture">
             <FaUser />
           </div>
 
-          <h2>
-            {user.name}
-          </h2>
+          <h2>{user.name}</h2>
 
           <p className="profile-role">
             Registered User
@@ -110,8 +85,9 @@ function Profile() {
           </button>
 
         </div>
-                {/* PERSONAL INFORMATION */}
 
+
+        {/* PERSONAL INFORMATION */}
         <div className="information-card">
 
           <div className="card-heading">
@@ -121,9 +97,7 @@ function Profile() {
             </div>
 
             <div>
-              <h2>
-                Personal Information
-              </h2>
+              <h2>Personal Information</h2>
 
               <p>
                 Your basic account information
@@ -135,152 +109,112 @@ function Profile() {
 
           <div className="profile-fields">
 
-
             {/* NAME */}
-
             <div className="profile-field">
-
-              <label>
-                Full Name
-              </label>
+              <label>Full Name</label>
 
               <div className="field-value">
-
                 <FaUser />
-
-                <span>
-                  {user.name}
-                </span>
-
+                <span>{user.name}</span>
               </div>
-
             </div>
 
 
             {/* EMAIL */}
-
             <div className="profile-field">
-
-              <label>
-                Email Address
-              </label>
+              <label>Email Address</label>
 
               <div className="field-value">
-
                 <FaEnvelope />
-
-                <span>
-                  {user.email}
-                </span>
-
+                <span>{user.email}</span>
               </div>
-
             </div>
 
 
             {/* PHONE */}
-
             <div className="profile-field">
-
-              <label>
-                Phone Number
-              </label>
+              <label>Phone Number</label>
 
               <div className="field-value">
-
                 <FaPhone />
 
                 <span>
                   {user.phone || "Not provided"}
                 </span>
-
               </div>
-
             </div>
 
 
             {/* BLOOD GROUP */}
-
             <div className="profile-field">
-
-              <label>
-                Blood Group
-              </label>
+              <label>Blood Group</label>
 
               <div className="field-value">
-
                 <FaTint />
 
                 <span>
                   {user.bloodGroup || "Not provided"}
                 </span>
-
               </div>
-
             </div>
 
 
             {/* DISTRICT */}
-
             <div className="profile-field">
-
-              <label>
-                District
-              </label>
+              <label>District</label>
 
               <div className="field-value">
-
                 <FaMapMarkerAlt />
 
                 <span>
                   {user.district || "Not provided"}
                 </span>
-
               </div>
-
             </div>
 
 
             {/* ACCOUNT TYPE */}
-
             <div className="profile-field">
-
-              <label>
-                Account Type
-              </label>
+              <label>Account Type</label>
 
               <div className="field-value">
-
                 <FaUser />
 
                 <span>
                   Registered User
                 </span>
-
               </div>
-
             </div>
 
 
-          </div>
+            {/* LOGOUT */}
+            <div className="logout-section">
 
+              <button
+                className="logout-button"
+                onClick={handleLogout}
+              >
+                <FaSignOutAlt />
+                Log Out
+              </button>
+
+            </div>
+
+          </div>
         </div>
 
       </main>
 
 
+      {/* FOOTER */}
       <footer className="home-footer">
-
         <p>
           © 2026 DurjogShohay. Stay safe, stay prepared.
         </p>
-
       </footer>
 
     </div>
-
   );
 }
-
 
 export default Profile;
