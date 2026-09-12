@@ -30,7 +30,7 @@ const loginUser = async (req, res) => {
                 message: "Invalid email or password"
             });
         }
-
+//token create kora hocche
         const token = jwt.sign(
             {
                 id: user._id,
@@ -42,7 +42,7 @@ const loginUser = async (req, res) => {
                 expiresIn: "1d"
             }
         );
-
+//token cookie te rakha
         res.cookie("token", token, {
             httpOnly: true,
             sameSite: "lax",
