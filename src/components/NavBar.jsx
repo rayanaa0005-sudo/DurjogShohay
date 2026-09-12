@@ -29,6 +29,8 @@ function NavBar() {
 
   <NavLink to="/about">About Us</NavLink>
 
+  <NavLink to="/contact">Contact Us</NavLink>
+
   <NavLink to="/profile">
     <FaUser />
     Profile

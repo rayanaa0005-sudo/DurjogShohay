@@ -58,14 +58,10 @@ function ForgotPassword() {
       <div className="forgot-container">
 
 
-        {/* Heading */}
-
         <h1>
           Forgot Password?
         </h1>
 
-
-        {/* Description */}
 
         <p className="forgot-description">
 
@@ -73,13 +69,8 @@ function ForgotPassword() {
           a link to reset your password.
 
         </p>
-
-
         
         <form onSubmit={handleSubmit}>
-
-
-          {/* Email */}
 
           <div className="forgot-input-group">
 
@@ -101,16 +92,11 @@ function ForgotPassword() {
           </div>
 
 
-          {/* Message */}
-
           {message && (
             <p className="success-message">
               {message}
             </p>
           )}
-
-
-          {/* Send Email Button */}
 
           <button
             type="submit"

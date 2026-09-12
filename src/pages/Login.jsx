@@ -216,7 +216,7 @@ function Login() {
                     setShowPassword(!showPassword)
                   }
                 >
-                  {showPassword ? "🙈" : "👁"}
+                  {showPassword ? "👁" : "👁"}
                 </button>
 
               </div>
@@ -270,11 +270,7 @@ function Login() {
           </form>
 
         </div>
-
-
-        
        
-
         <div className="login-right">
 
           <div className="shape shape-one"></div>

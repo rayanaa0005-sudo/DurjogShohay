@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 import {
   FaEnvelope,
@@ -44,61 +45,7 @@ function ContactUs() {
 
     <div className="contact-page">
 
-
-      
-
-      <nav className="contact-navbar">
-
-        <div className="contact-logo">
-          DurjogShohay
-        </div>
-
-
-        <div className="contact-nav-links">
-
-          <Link to="/">
-            Home
-          </Link>
-
-          <Link to="/get-help">
-            Get Help ▼
-          </Link>
-
-          <Link to="/give-help">
-            Give Help ▼
-          </Link>
-
-          <Link to="/track">
-            Track ▼
-          </Link>
-
-          <Link to="/community">
-            Community ▼
-          </Link>
-
-          <Link to="/about">
-            About Us
-          </Link>
-
-          <Link to="/contact" className="active">
-            Contact Us
-          </Link>
-
-          <Link to="/login">
-            Login
-          </Link>
-
-          <Link to="/signup">
-            Sign Up
-          </Link>
-
-        </div>
-
-      </nav>
-
-
-    
-
+        <NavBar />
       <section className="contact-hero">
 
         <p className="contact-small-title">
@@ -166,13 +113,11 @@ function ContactUs() {
           </div>
 
 
-          {/* Phone */}
-
           <div className="contact-info-card">
 
             <div className="contact-icon">
-  <FaPhone />
-</div>
+               <FaPhone />
+            </div>
 
             <div>
 
@@ -189,13 +134,11 @@ function ContactUs() {
           </div>
 
 
-          {/* Location */}
-
           <div className="contact-info-card">
 
             <div className="contact-icon">
-  <FaMapMarkerAlt />
-</div>
+             <FaMapMarkerAlt />
+            </div>
 
             <div>
 
@@ -214,8 +157,6 @@ function ContactUs() {
         </div>
 
 
-        
-
         <div className="contact-form-container">
 
           <h2>
@@ -230,8 +171,6 @@ function ContactUs() {
 
           <form onSubmit={handleSubmit}>
 
-
-            {/* Name */}
 
             <div className="contact-input-group">
 
@@ -249,8 +188,6 @@ function ContactUs() {
             </div>
 
 
-            {/* Email */}
-
             <div className="contact-input-group">
 
               <label>
@@ -267,8 +204,6 @@ function ContactUs() {
             </div>
 
 
-            {/* Message */}
-
             <div className="contact-input-group">
 
               <label>
@@ -283,9 +218,6 @@ function ContactUs() {
 
             </div>
 
-
-            {/* Success message */}
-
             {success && (
 
               <p className="contact-success">
@@ -294,8 +226,6 @@ function ContactUs() {
 
             )}
 
-
-            {/* Submit */}
 
             <button
               type="submit"

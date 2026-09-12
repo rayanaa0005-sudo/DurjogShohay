@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 import {
   FaShieldAlt,
@@ -13,45 +14,11 @@ import "../styles/AboutUs.css";
 function AboutUs() {
 
   return (
+
+
     <div className="about-page">
 
-      
-
-      <nav className="home-navbar">
-
-        <div className="home-logo">
-          DurjogShohay
-        </div>
-
-
-        <div className="home-nav-links">
-
-          <Link to="/">
-            Home
-          </Link>
-
-          <Link to="/about" className="active">
-            About Us
-          </Link>
-
-          <Link to="/contact">
-            Contact
-          </Link>
-
-          <Link to="/login">
-            Login
-          </Link>
-
-          <Link to="/signup">
-            Sign Up
-          </Link>
-
-        </div>
-
-      </nav>
-
-
-      
+      <NavBar />
       <section className="about-hero">
 
         <p className="about-small-title">
@@ -108,8 +75,8 @@ function AboutUs() {
         <div className="about-mission-card">
 
           <div className="mission-circle">
-  <FaShieldAlt />
-</div>
+           <FaShieldAlt />
+          </div>
 
           <h3>
             Your Safety,
@@ -147,14 +114,11 @@ function AboutUs() {
 
         <div className="about-card-grid">
 
-
-          {/* Emergency Help */}
-
           <div className="about-card">
 
-           <div className="about-card-icon">
-          <FaExclamationTriangle />
-          </div>
+            <div className="about-card-icon">
+              <FaExclamationTriangle />
+            </div>
 
             <h3>
               Emergency Help
@@ -167,14 +131,11 @@ function AboutUs() {
 
           </div>
 
-
-          {/* Disaster Information */}
-
           <div className="about-card">
 
             <div className="about-card-icon">
-  <FaWater />
-</div>
+              <FaWater />
+            </div>
 
             <h3>
               Disaster Information
@@ -188,13 +149,11 @@ function AboutUs() {
           </div>
 
 
-          {/* Community */}
-
           <div className="about-card">
 
-           <div className="about-card-icon">
-  <FaUsers />
-</div>
+            <div className="about-card-icon">
+             <FaUsers />
+            </div>
 
             <h3>
               Community Support
@@ -207,14 +166,11 @@ function AboutUs() {
 
           </div>
 
-
-          {/* Directory */}
-
           <div className="about-card">
 
             <div className="contact-icon">
-  <FaMapMarkerAlt />
-</div>
+             <FaMapMarkerAlt />
+            </div>
 
             <h3>
               Emergency Directory

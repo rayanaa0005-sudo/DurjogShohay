@@ -66,9 +66,6 @@ function Home() {
 
         </div>
 
-
-        {/* Decorative circle */}
-
         <div className="welcome-shape">
 
           <div className="circle-one"></div>
@@ -96,8 +93,6 @@ function Home() {
         <div className="services-grid">
 
 
-          {/* Ambulance */}
-
           <div className="service-card">
 
             <div className="service-icon">
@@ -121,8 +116,6 @@ function Home() {
           </div>
 
 
-          {/* Fire Service */}
-
           <div className="service-card">
 
             <div className="service-icon">
@@ -144,9 +137,6 @@ function Home() {
             </button>
 
           </div>
-
-
-          {/* Police */}
 
           <div className="service-card">
 
@@ -170,8 +160,6 @@ function Home() {
 
           </div>
 
-
-          {/* Hospital */}
 
           <div className="service-card">
 
@@ -240,9 +228,6 @@ function Home() {
 
           </div>
 
-
-          {/* Cyclone */}
-
           <div className="disaster-card">
 
             <div className="disaster-icon">
@@ -264,8 +249,6 @@ function Home() {
           </div>
 
 
-          {/* Earthquake */}
-
           <div className="disaster-card">
 
             <div className="disaster-icon">
@@ -286,8 +269,6 @@ function Home() {
 
           </div>
 
-
-          {/* Fire */}
 
           <div className="disaster-card">
 
