@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext.jsx";
 import { Link, useNavigate } from "react-router-dom";
 
 import "../styles/Login.css";
@@ -7,7 +8,7 @@ import "../styles/Login.css";
 function Login() {
 
   const navigate = useNavigate();
-
+  const { setUser } = useAuth();  
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -67,6 +68,7 @@ function Login() {
       alert(data.message || "Login failed");
       return;
     }
+    setUser(data.user);
 
     alert(data.message || "Login successful!");
     navigate("/");

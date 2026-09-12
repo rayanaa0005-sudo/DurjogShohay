@@ -66,9 +66,12 @@ function Profile() {
             Registered User
           </p>
 
-          <button className="edit-profile-button">
+          <button
+              className="edit-profile-button"
+              onClick={() => navigate("/edit-profile")}
+        >
             <FaEdit />
-            Edit Profile
+              Edit Profile
           </button>
 
         </div>

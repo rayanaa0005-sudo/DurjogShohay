@@ -52,7 +52,7 @@ router.post("/signup", async (req, res) => {
     }
 });
 
-// GET CURRENT USER
+// current logged in user check kore
 router.get("/profile", checkToken, async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select("-password");
@@ -75,9 +75,52 @@ router.get("/profile", checkToken, async (req, res) => {
         });
     }
 });
+//edit 
+router.put("/profile", checkToken, async (req, res) => {
+    try {
+        const {
+            phone,
+            bloodGroup,
+            district
+        } = req.body;
 
-// LOGOUT
+        const user = await User.findById(req.user.id);
+
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found"
+            });
+        }
+
+        user.phone = phone;
+        user.bloodGroup = bloodGroup;
+        user.district = district;
+
+        await user.save();
+
+        res.status(200).json({
+            message: "Profile updated successfully!",
+            user: {
+                name: user.name,
+                email: user.email,
+                phone: user.phone,
+                bloodGroup: user.bloodGroup,
+                district: user.district
+            }
+        });
+
+    } catch (error) {
+        console.log(error);
+
+        res.status(500).json({
+            message: "Server error"
+        });
+    }
+});
+
+// logout
 router.post("/logout", (req, res) => {
+    //token cookie theke clear kore dey
     res.clearCookie("token", {
         httpOnly: true,
         sameSite: "lax",
