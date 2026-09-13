@@ -13,7 +13,7 @@ router.get("/shelters/:city", async (req, res) => {
 
         const shelters = await Shelter.find({ city: city });
 
-        res.status(200).json(shelters);
+        res.status(200).json(shelters); //200 request successful status code
 
     } catch (error) {
 

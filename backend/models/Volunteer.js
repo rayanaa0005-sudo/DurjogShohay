@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); //Mongoose is used to communicate with MongoDB from Node.js
 
-const volunteerSchema = new mongoose.Schema({
+const volunteerSchema = new mongoose.Schema({ //A schema defines the structure of one volunteer's information.
     name: {
         type: String,
         required: true
@@ -47,4 +47,4 @@ const volunteerSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("Volunteer", volunteerSchema);
+module.exports = mongoose.model("Volunteer", volunteerSchema);  //This creates a Mongoose model named Volunteer. Other backend files can import it using "Volunteer"
