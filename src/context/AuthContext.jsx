@@ -22,6 +22,9 @@ export function AuthProvider({ children }) {
                     setUser(data.user);
                 } else {
                     setUser(null);
+                    if (response.status === 401 && window.location.pathname !== "/login") {
+                    window.location.href = "/login";
+                    }
                 }
             } catch (error) {
                 console.log("Not logged in");
