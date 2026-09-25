@@ -8,7 +8,8 @@ import {
   FaTint,
   FaMapMarkerAlt,
   FaEdit,
-  FaSignOutAlt
+  FaSignOutAlt,
+  FaHandHoldingHeart
 } from "react-icons/fa";
 
 import { useAuth } from "../context/AuthContext.jsx";
@@ -69,9 +70,16 @@ function Profile() {
           <button
               className="edit-profile-button"
               onClick={() => navigate("/edit-profile")}
-        >
+          >
             <FaEdit />
               Edit Profile
+          </button>
+          <button
+              className="my-donations-button"
+              onClick={() => navigate("/my-donations")}
+          >
+              <FaHandHoldingHeart />
+              My Donations
           </button>
 
         </div>

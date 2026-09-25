@@ -7,10 +7,10 @@ function Rehabilitation() {
   const [location, setLocation] = useState('');
   const [help, setHelp] = useState('');
   const [description, setDescription] = useState('');
+  const [contact, setContact] = useState('');
 
   const [posts, setPosts] = useState([]);
 
-  // Get saved rehabilitation requests from MongoDB
   useEffect(() => {
 
     async function getPosts() {
@@ -41,11 +41,14 @@ function Rehabilitation() {
 
   }, []);
 
-
-  // Post a new rehabilitation request
   async function handlePost() {
 
-    if (location === '' || help === '' || description === '') {
+    if (
+      location === '' ||
+      help === '' ||
+      description === '' ||
+      contact === ''
+    ) {
       alert('Please fill in all fields');
       return;
     }
@@ -53,7 +56,8 @@ function Rehabilitation() {
     const newPost = {
       location: location,
       help: help,
-      description: description
+      description: description,
+      contact: contact
     };
 
     try {
@@ -73,13 +77,12 @@ function Rehabilitation() {
 
       if (response.ok) {
 
-        // Add the newly saved post to the page
         setPosts([...posts, data.request]);
 
-        // Clear the form
         setLocation('');
         setHelp('');
         setDescription('');
+        setContact('');
 
       } else {
 
@@ -95,7 +98,6 @@ function Rehabilitation() {
     }
   }
 
-
   return (
     <>
       <NavBar />
@@ -109,7 +111,6 @@ function Rehabilitation() {
         <p>
           Post your request so people nearby can help.
         </p>
-
 
         <label>Location</label>
 
@@ -130,7 +131,6 @@ function Rehabilitation() {
           <option>Mymensingh</option>
         </select>
 
-
         <label>What kind of help do you need?</label>
 
         <input
@@ -140,7 +140,6 @@ function Rehabilitation() {
           placeholder="Example: House rehabilitation"
         />
 
-
         <label>Description</label>
 
         <textarea
@@ -149,18 +148,27 @@ function Rehabilitation() {
           placeholder="Describe what help you need..."
         ></textarea>
 
+        <label>Contact Number</label>
+
+        <input
+          type="text"
+          value={contact}
+          onChange={(e) => setContact(e.target.value)}
+          placeholder="Example: 017XXXXXXXX"
+        />
 
         <button onClick={handlePost}>
           Post Request
         </button>
 
-
         <h2>Recent Rehabilitation Requests</h2>
-
 
         {posts.map((post, index) => (
 
-          <div className="rehab-post" key={post._id || index}>
+          <div
+            className="rehab-post"
+            key={post._id || index}
+          >
 
             <h3>📍 {post.location}</h3>
 
@@ -168,7 +176,11 @@ function Rehabilitation() {
 
             <p>{post.description}</p>
 
-            <button>
+            <button
+              onClick={() =>
+                alert("Contact: " + post.contact)
+              }
+            >
               I Want To Help
             </button>
 
@@ -182,4 +194,3 @@ function Rehabilitation() {
 }
 
 export default Rehabilitation;
-
