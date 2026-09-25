@@ -8,6 +8,8 @@ const loginRoutes = require("./routes/loginRoutes");
 const volunteerRoutes = require("./routes/volunteer");
 const shelterRoutes = require("./routes/shelter");
 const organizationRoutes= require("./routes/organization");
+const rehabilitationRoutes = require("./routes/rehabilitation");
+const donationRoutes = require("./routes/donation");
 const app = express();
 
 app.use(cors({
@@ -23,7 +25,8 @@ app.use("/api", authRoutes);
 app.use("/api", volunteerRoutes);
 app.use("/api", shelterRoutes);
 app.use("/api", organizationRoutes);
-
+app.use("/api/rehabilitation", rehabilitationRoutes);
+app.use("/api/donation", donationRoutes);
 app.get("/", (req, res) => {
     res.send("DurjogShohay Backend is Running!");
 });
