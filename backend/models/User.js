@@ -30,6 +30,12 @@ const userSchema = new mongoose.Schema({
     district: {
         type: String,
         default: ""
+    },
+
+    role: {
+    type: String,
+    enum: ["user", "admin"],
+    default: "user"
     }
 });
 

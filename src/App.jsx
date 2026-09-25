@@ -23,6 +23,7 @@ import Donation from "./pages/Donation";
 import Rehabilitation from "./pages/Rehabilitation";
 import TrackDonation from "./pages/TrackDonation";
 import MyDonations from "./pages/MyDonations";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
           <Route path="/rehabilitation" element={<Rehabilitation />} />
           <Route path="/track-donation" element={<TrackDonation />} />
           <Route path="/my-donations" element={<MyDonations />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

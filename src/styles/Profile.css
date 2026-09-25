@@ -213,6 +213,27 @@
 
     fill: white;
 }
+.admin-panel-button {
+    
+    padding: 10px 18px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #006A4E;
+    color: white;
+    font-size: 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin: 10px auto 0;
+    
+}
+
+.admin-panel-button:hover {
+    background-color: #00543E;
+}
 
 
 
@@ -534,6 +555,7 @@
 
 
 
+
 @media (max-width: 800px) {
 
     .profile-container {
@@ -590,5 +612,8 @@
     .emergency-profile-card button {
         width: 100%;
     }
+    
+    
+        
 
 }

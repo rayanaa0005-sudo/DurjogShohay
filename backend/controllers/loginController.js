@@ -30,19 +30,22 @@ const loginUser = async (req, res) => {
                 message: "Invalid email or password"
             });
         }
-//token create kora hocche
+
+        // token create kora hocche
         const token = jwt.sign(
             {
                 id: user._id,
                 name: user.name,
-                email: user.email
+                email: user.email,
+                role: user.role
             },
             process.env.JWT_SECRET,
             {
                 expiresIn: "1d"
             }
         );
-//token cookie te rakha
+
+        // token cookie te rakha
         res.cookie("token", token, {
             httpOnly: true,
             sameSite: "lax",
@@ -55,7 +58,8 @@ const loginUser = async (req, res) => {
             user: {
                 id: user._id,
                 name: user.name,
-                email: user.email
+                email: user.email,
+                role: user.role
             }
         });
 
@@ -69,3 +73,4 @@ const loginUser = async (req, res) => {
 };
 
 module.exports = { loginUser };
+
