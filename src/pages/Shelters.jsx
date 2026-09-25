@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import NavBar from "../components/NavBar";
 
@@ -7,9 +7,40 @@ import "../styles/Shelters.css";
 const Shelters = () => {
 
     const [selectedLocation, setSelectedLocation] = useState("");
+    const [locations, setLocations] = useState([]);
     const [shelters, setShelters] = useState([]);
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
+
+    useEffect(() => {
+
+        const fetchLocations = async () => {
+
+            try {
+
+                const response = await fetch(
+                    "http://localhost:5001/api/shelter-locations"
+                );
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch locations");
+                }
+
+                const data = await response.json();
+
+                setLocations(data);
+
+            } catch (error) {
+
+                console.log(error);
+                setMessage("Could not load locations.");
+
+            }
+        };
+
+        fetchLocations();
+
+    }, []);
 
     const handleLocationChange = async (e) => {
 
@@ -84,14 +115,16 @@ const Shelters = () => {
                             Select a location
                         </option>
 
-                        <option value="Dhaka">Dhaka</option>
-                        <option value="Chittagong">Chittagong</option>
-                        <option value="Sylhet">Sylhet</option>
-                        <option value="Khulna">Khulna</option>
-                        <option value="Mymensingh">Mymensingh</option>
-                        <option value="Barishal">Barishal</option>
-                        <option value="Rajshahi">Rajshahi</option>
-                        <option value="Rangpur">Rangpur</option>
+                        {locations.map((location) => (
+
+                            <option
+                                key={location._id}
+                                value={location.city}
+                            >
+                                {location.city}
+                            </option>
+
+                        ))}
 
                     </select>
 

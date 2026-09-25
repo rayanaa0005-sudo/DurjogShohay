@@ -75,3 +75,17 @@
 .volunteer-form button:hover {
     background-color: #00513c;
 }
+
+.volunteer-form input.input-error,
+.volunteer-form select.input-error {
+    border: 2px solid red !important;
+    background-color: rgb(199, 221, 209);
+    outline: none !important;
+}
+
+.field-error {
+    color: red;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}

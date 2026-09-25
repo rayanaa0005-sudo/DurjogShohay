@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 
@@ -19,25 +19,137 @@ function ContactUs() {
 
   const [success, setSuccess] = useState("");
 
+  const [contactInfo, setContactInfo] = useState(null);
 
-  const handleSubmit = (e) => {
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+
+
+  useEffect(() => {
+
+    const fetchContactInfo = async () => {
+
+      try {
+
+        const response = await fetch(
+          "http://localhost:5001/api/contact-info"
+        );
+
+        const data = await response.json();
+
+        setContactInfo(data);
+
+      } catch (error) {
+
+        console.log("Error:", error);
+
+      }
+    };
+
+    fetchContactInfo();
+
+  }, []);
+
+
+  const handleSubmit = async (e) => {
 
     e.preventDefault();
 
+    let valid = true;
+
+
     if (name === "" || email === "" || message === "") {
 
-      alert("Please fill in all the fields.");
+        alert("Please fill in all the fields.");
 
-      return;
+        return;
     }
 
-    setSuccess(
-      "Thank you! Your message has been received."
-    );
 
-    setName("");
-    setEmail("");
-    setMessage("");
+    if (!/^[A-Za-z .'-]+$/.test(name)) {
+
+        setNameError(
+          "Name can contain letters, spaces, dots, apostrophes and hyphens only."
+        );
+
+        valid = false;
+
+    } else {
+
+        setNameError("");
+
+    }
+
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+
+        setEmailError(
+          "Please enter a valid email address."
+        );
+
+        valid = false;
+
+    } else {
+
+        setEmailError("");
+
+    }
+
+
+    if (!valid) {
+
+        return;
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5001/api/contact",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+
+            setSuccess(
+                "Thank you! Your message has been received."
+            );
+
+            setName("");
+            setEmail("");
+            setMessage("");
+
+        } else {
+
+            setSuccess(
+                data.message || "Could not send your message."
+            );
+
+        }
+
+    } catch (error) {
+
+        console.log("Error:", error);
+
+        setSuccess(
+            "Could not connect to the server."
+        );
+
+    }
   };
 
 
@@ -46,6 +158,7 @@ function ContactUs() {
     <div className="contact-page">
 
         <NavBar />
+
       <section className="contact-hero">
 
         <p className="contact-small-title">
@@ -65,12 +178,8 @@ function ContactUs() {
       </section>
 
 
-    
-
       <section className="contact-section">
 
-
-        
 
         <div className="contact-information">
 
@@ -95,8 +204,8 @@ function ContactUs() {
           <div className="contact-info-card">
 
             <div className="contact-icon">
-  <FaEnvelope />
-</div>
+              <FaEnvelope />
+            </div>
 
             <div>
 
@@ -105,7 +214,7 @@ function ContactUs() {
               </h3>
 
               <p>
-                support@durjogshohay.com
+                {contactInfo?.email}
               </p>
 
             </div>
@@ -116,7 +225,7 @@ function ContactUs() {
           <div className="contact-info-card">
 
             <div className="contact-icon">
-               <FaPhone />
+              <FaPhone />
             </div>
 
             <div>
@@ -126,7 +235,7 @@ function ContactUs() {
               </h3>
 
               <p>
-                +880 1XXX-XXXXXX
+                {contactInfo?.phone}
               </p>
 
             </div>
@@ -137,7 +246,7 @@ function ContactUs() {
           <div className="contact-info-card">
 
             <div className="contact-icon">
-             <FaMapMarkerAlt />
+              <FaMapMarkerAlt />
             </div>
 
             <div>
@@ -147,7 +256,7 @@ function ContactUs() {
               </h3>
 
               <p>
-                Dhaka, Bangladesh
+                {contactInfo?.location}
               </p>
 
             </div>
@@ -182,8 +291,31 @@ function ContactUs() {
                 type="text"
                 placeholder="Enter your name"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => {
+
+                  const value = e.target.value;
+
+                  if (/^[A-Za-z .'-]*$/.test(value)) {
+
+                    setName(value);
+                    setNameError("");
+
+                  } else {
+
+                    setNameError(
+                      "Name can contain letters, spaces, dots, apostrophes and hyphens only."
+                    );
+
+                  }
+
+                }}
               />
+
+              {nameError && (
+                <p className="contact-error">
+                  {nameError}
+                </p>
+              )}
 
             </div>
 
@@ -198,8 +330,40 @@ function ContactUs() {
                 type="email"
                 placeholder="Enter your email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+
+                  setEmail(e.target.value);
+
+                  setEmailError("");
+
+                }}
+                onBlur={(e) => {
+
+                  const value = e.target.value;
+
+                  if (
+                    value &&
+                    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+                  ) {
+
+                    setEmailError(
+                      "Please enter a valid email address."
+                    );
+
+                  } else {
+
+                    setEmailError("");
+
+                  }
+
+                }}
               />
+
+              {emailError && (
+                <p className="contact-error">
+                  {emailError}
+                </p>
+              )}
 
             </div>
 
@@ -217,6 +381,7 @@ function ContactUs() {
               />
 
             </div>
+
 
             {success && (
 
@@ -241,7 +406,6 @@ function ContactUs() {
       </section>
 
 
-      
       <footer className="contact-footer">
 
         <p>
