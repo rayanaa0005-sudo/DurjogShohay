@@ -26,6 +26,12 @@ function EditProfile() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // Check phone number
+        if (!/^\d{11}$/.test(phone)) {
+            alert("Phone number must be exactly 11 digits");
+            return;
+        }
+
         const response = await fetch(
             "http://localhost:5001/api/profile",
             {
@@ -112,9 +118,18 @@ function EditProfile() {
                                 <input
                                     type="text"
                                     value={phone}
-                                    onChange={(e) =>
-                                        setPhone(e.target.value)
-                                    }
+                                    onChange={(e) => {
+                                        const value = e.target.value;
+
+                                        if (
+                                            /^\d*$/.test(value) &&
+                                            value.length <= 11
+                                        ) {
+                                            setPhone(value);
+                                        }
+                                    }}
+                                    maxLength="11"
+                                    placeholder="Example: 01712345678"
                                 />
 
                             </div>
@@ -124,13 +139,25 @@ function EditProfile() {
 
                                 <label>Blood Group</label>
 
-                                <input
-                                    type="text"
+                                <select
                                     value={bloodGroup}
                                     onChange={(e) =>
                                         setBloodGroup(e.target.value)
                                     }
-                                />
+                                >
+                                    <option value="">
+                                        Select Blood Group
+                                    </option>
+
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
 
                             </div>
 

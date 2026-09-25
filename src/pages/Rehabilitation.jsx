@@ -53,6 +53,12 @@ function Rehabilitation() {
       return;
     }
 
+    // Check phone number
+    if (!/^\d{11}$/.test(contact)) {
+      alert("Contact number must be exactly 11 digits");
+      return;
+    }
+
     const newPost = {
       location: location,
       help: help,
@@ -153,8 +159,15 @@ function Rehabilitation() {
         <input
           type="text"
           value={contact}
-          onChange={(e) => setContact(e.target.value)}
-          placeholder="Example: 017XXXXXXXX"
+          onChange={(e) => {
+            const value = e.target.value;
+
+            if (/^\d*$/.test(value) && value.length <= 11) {
+              setContact(value);
+            }
+          }}
+          placeholder="Example: 01712345678"
+          maxLength="11"
         />
 
         <button onClick={handlePost}>
