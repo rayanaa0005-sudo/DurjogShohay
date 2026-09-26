@@ -48,4 +48,59 @@ router.post("/volunteers", async (req, res) => {  //req = It contains informatio
     }
 });
 
+
+router.get("/volunteers/admin/all", async (req, res) => {
+    try {
+
+        const volunteers = await Volunteer.find();
+
+        res.status(200).json(volunteers);
+
+    } catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            message: "Server error"
+        });
+
+    }
+});
+
+
+router.put("/volunteers/admin/:id/assign", async (req, res) => {
+
+    try {
+
+        const { organizationId } = req.body;
+
+        const volunteer = await Volunteer.findById(req.params.id);
+
+        if (!volunteer) {
+            return res.status(404).json({
+                message: "Volunteer not found"
+            });
+        }
+
+        volunteer.organization = organizationId;
+
+        await volunteer.save();
+
+        res.status(200).json({
+            message: "Volunteer assigned successfully!",
+            volunteer: volunteer
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            message: "Server error"
+        });
+    }
+});
+
+
 module.exports = router; //This allows server.js to import the volunteer route. Without this line, the route cannot be used from another file.
+

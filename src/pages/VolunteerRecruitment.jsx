@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import NavBar from "../components/NavBar";
 
@@ -9,6 +9,8 @@ const VolunteerRecruitment = () => {
     const [message, setMessage] = useState("");
 
     const [errors, setErrors] = useState({});
+
+    const [locations, setLocations] = useState([]);
 
     const [formData, setFormData] = useState({
 
@@ -32,6 +34,44 @@ const VolunteerRecruitment = () => {
 
     });
 
+
+    useEffect(() => {
+
+        async function getLocations() {
+
+            try {
+
+                const response = await fetch(
+                    "http://localhost:5001/api/locations"
+                );
+
+                const data = await response.json();
+
+                if (response.ok) {
+
+                    setLocations(data);
+
+                } else {
+
+                    alert(data.message);
+
+                }
+
+            } catch (error) {
+
+                console.log(error);
+
+                alert("Could not load locations");
+
+            }
+
+        }
+
+        getLocations();
+
+    }, []);
+
+
     const handleChange = (e) => {
 
         const { name, value } = e.target;
@@ -46,55 +86,56 @@ const VolunteerRecruitment = () => {
 
         let error = "";
 
+
         if (name === "name") {
 
             if (!/^[A-Za-z .'-]*$/.test(value)) {
 
-                error = "Name can only contain letters.";
+                error =
+                    "Name can only contain letters, spaces, dots, apostrophes and hyphens.";
 
             } else if (value.trim().length > 50) {
 
-                error = "Name cannot be longer than 50 characters.";
+                error =
+                    "Name cannot be longer than 50 characters.";
 
             }
 
         }
+
 
         if (name === "phone" || name === "familyPhone") {
 
             if (!/^[0-9]*$/.test(value)) {
 
-            error = "Phone number can contain digits only.";
+                error =
+                    "Phone number can contain digits only.";
 
             } else if (value.length > 11) {
 
-            error = "Phone number cannot be longer than 11 digits.";
+                error =
+                    "Phone number cannot be longer than 11 digits.";
 
-            } else if (value.length > 0 && !value.startsWith("01")) {
+            } else if (
+                value.length > 0 &&
+                !value.startsWith("01")
+            ) {
 
-             error = "Phone number must start with 01.";
+                error =
+                    "Phone number must start with 01.";
 
-            } else if (value.length > 0 && value.length < 11) {
+            } else if (
+                value.length > 0 &&
+                value.length < 11
+            ) {
 
-            error = "Phone number must be 11 digits.";
-
-            }
-
-        }
-
-        if (name === "preferredLocation") {
-
-            if (!/^[A-Za-z .'-]*$/.test(value)) {
-
-                error = "Location can only contain letters.";
-
-            } else if (value.trim().length > 50) {
-
-                error = "Location cannot be longer than 50 characters.";
+                error =
+                    "Phone number must be 11 digits.";
 
             }
 
         }
+
 
         setErrors({
 
@@ -106,23 +147,29 @@ const VolunteerRecruitment = () => {
 
     };
 
+
     const handleSubmit = async (e) => {
 
         e.preventDefault();
 
         const newErrors = {};
 
+
         if (!/^[A-Za-z .'-]{2,50}$/.test(formData.name.trim())) {
 
-            newErrors.name = "Please enter a valid name.";
+            newErrors.name =
+                "Please enter a valid name.";
 
         }
+
 
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
 
-            newErrors.email = "Please enter a valid email address.";
+            newErrors.email =
+                "Please enter a valid email address.";
 
         }
+
 
         if (!/^01[0-9]{9}$/.test(formData.phone)) {
 
@@ -131,6 +178,7 @@ const VolunteerRecruitment = () => {
 
         }
 
+
         if (!/^01[0-9]{9}$/.test(formData.familyPhone)) {
 
             newErrors.familyPhone =
@@ -138,22 +186,22 @@ const VolunteerRecruitment = () => {
 
         }
 
+
         if (!formData.bloodGroup) {
 
-            newErrors.bloodGroup = "Please select a blood group.";
+            newErrors.bloodGroup =
+                "Please select a blood group.";
 
         }
 
-        if (
-            !/^[A-Za-z .'-]{2,50}$/.test(
-                formData.preferredLocation.trim()
-            )
-        ) {
+
+        if (!formData.preferredLocation) {
 
             newErrors.preferredLocation =
-                "Please enter a valid preferred location.";
+                "Please select a preferred location.";
 
         }
+
 
         if (!formData.availability) {
 
@@ -162,12 +210,14 @@ const VolunteerRecruitment = () => {
 
         }
 
+
         if (!formData.skills) {
 
             newErrors.skills =
                 "Please select a skill.";
 
         }
+
 
         if (!formData.areaOfInterest) {
 
@@ -176,7 +226,9 @@ const VolunteerRecruitment = () => {
 
         }
 
+
         setErrors(newErrors);
+
 
         if (Object.keys(newErrors).length > 0) {
 
@@ -184,15 +236,19 @@ const VolunteerRecruitment = () => {
 
         }
 
+
         try {
 
             const response = await fetch(
                 "http://localhost:5001/api/volunteers",
                 {
+
                     method: "POST",
 
                     headers: {
+
                         "Content-Type": "application/json"
+
                     },
 
                     body: JSON.stringify(formData)
@@ -200,13 +256,16 @@ const VolunteerRecruitment = () => {
                 }
             );
 
+
             const data = await response.json();
+
 
             if (response.ok) {
 
                 setMessage(
                     "Registration completed! We will contact you when volunteer support is needed."
                 );
+
 
                 setFormData({
 
@@ -230,7 +289,9 @@ const VolunteerRecruitment = () => {
 
                 });
 
+
                 setErrors({});
+
 
             } else {
 
@@ -239,6 +300,7 @@ const VolunteerRecruitment = () => {
                 );
 
             }
+
 
         } catch (error) {
 
@@ -251,6 +313,7 @@ const VolunteerRecruitment = () => {
         }
 
     };
+
 
     return (
 
@@ -266,12 +329,14 @@ const VolunteerRecruitment = () => {
                     Join our volunteer team and help communities affected by disasters.
                 </p>
 
+
                 <form
                     className="volunteer-form"
                     onSubmit={handleSubmit}
                 >
 
                     <h2>Volunteer Registration</h2>
+
 
                     <label>Full Name</label>
 
@@ -282,7 +347,11 @@ const VolunteerRecruitment = () => {
                         onChange={handleChange}
                         minLength="2"
                         maxLength="50"
-                        className={errors.name ? "input-error" : ""}
+                        className={
+                            errors.name
+                                ? "input-error"
+                                : ""
+                        }
                         required
                     />
 
@@ -294,6 +363,7 @@ const VolunteerRecruitment = () => {
 
                     )}
 
+
                     <label>Email</label>
 
                     <input
@@ -303,7 +373,8 @@ const VolunteerRecruitment = () => {
                         onChange={handleChange}
                         onBlur={(e) => {
 
-                            const value = e.target.value;
+                            const value =
+                                e.target.value;
 
                             let error = "";
 
@@ -312,7 +383,8 @@ const VolunteerRecruitment = () => {
                                 !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
                             ) {
 
-                                error = "Please enter a valid email address.";
+                                error =
+                                    "Please enter a valid email address.";
 
                             }
 
@@ -325,7 +397,11 @@ const VolunteerRecruitment = () => {
                             });
 
                         }}
-                        className={errors.email ? "input-error" : ""}
+                        className={
+                            errors.email
+                                ? "input-error"
+                                : ""
+                        }
                         required
                     />
 
@@ -337,6 +413,7 @@ const VolunteerRecruitment = () => {
 
                     )}
 
+
                     <label>Phone Number</label>
 
                     <input
@@ -346,7 +423,11 @@ const VolunteerRecruitment = () => {
                         onChange={handleChange}
                         maxLength="11"
                         inputMode="numeric"
-                        className={errors.phone ? "input-error" : ""}
+                        className={
+                            errors.phone
+                                ? "input-error"
+                                : ""
+                        }
                         required
                     />
 
@@ -358,7 +439,10 @@ const VolunteerRecruitment = () => {
 
                     )}
 
-                    <label>Phone Number of a Family Member</label>
+
+                    <label>
+                        Phone Number of a Family Member
+                    </label>
 
                     <input
                         type="tel"
@@ -383,6 +467,7 @@ const VolunteerRecruitment = () => {
 
                     )}
 
+
                     <label>Blood Group</label>
 
                     <select
@@ -402,19 +487,12 @@ const VolunteerRecruitment = () => {
                         </option>
 
                         <option value="A+">A+</option>
-
                         <option value="A-">A-</option>
-
                         <option value="B+">B+</option>
-
                         <option value="B-">B-</option>
-
                         <option value="AB+">AB+</option>
-
                         <option value="AB-">AB-</option>
-
                         <option value="O+">O+</option>
-
                         <option value="O-">O-</option>
 
                     </select>
@@ -427,22 +505,37 @@ const VolunteerRecruitment = () => {
 
                     )}
 
+
                     <label>Preferred Location</label>
 
-                    <input
-                        type="text"
+                    <select
                         name="preferredLocation"
                         value={formData.preferredLocation}
                         onChange={handleChange}
-                        minLength="2"
-                        maxLength="50"
                         className={
                             errors.preferredLocation
                                 ? "input-error"
                                 : ""
                         }
                         required
-                    />
+                    >
+
+                        <option value="">
+                            Select preferred location
+                        </option>
+
+                        {locations.map((location) => (
+
+                            <option
+                                key={location._id}
+                                value={location.district}
+                            >
+                                {location.district}
+                            </option>
+
+                        ))}
+
+                    </select>
 
                     {errors.preferredLocation && (
 
@@ -451,6 +544,7 @@ const VolunteerRecruitment = () => {
                         </p>
 
                     )}
+
 
                     <label>Availability</label>
 
@@ -491,6 +585,7 @@ const VolunteerRecruitment = () => {
                         </p>
 
                     )}
+
 
                     <label>Skills</label>
 
@@ -544,6 +639,7 @@ const VolunteerRecruitment = () => {
 
                     )}
 
+
                     <label>Area of Interest</label>
 
                     <select
@@ -587,6 +683,7 @@ const VolunteerRecruitment = () => {
                         </p>
 
                     )}
+
 
                     <button type="submit">
                         Register

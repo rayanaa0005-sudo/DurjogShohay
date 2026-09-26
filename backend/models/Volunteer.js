@@ -44,7 +44,13 @@ const volunteerSchema = new mongoose.Schema({ //A schema defines the structure o
     areaOfInterest: {
         type: String,
         required: true
-    }
+    },
+
+    organization: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Organization",
+    default: null
+}
 });
 
 module.exports = mongoose.model("Volunteer", volunteerSchema);  //This creates a Mongoose model named Volunteer. Other backend files can import it using "Volunteer"

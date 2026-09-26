@@ -27,7 +27,7 @@ function NavBar() {
 
   <NavLink to="/track-donation">Track</NavLink>
 
-  <NavLink to="/about">About Us</NavLink>
+  {/* <NavLink to="/about">About Us</NavLink> */}
 
   <NavLink to="/contact">Contact Us</NavLink>
 

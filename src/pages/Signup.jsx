@@ -10,11 +10,41 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleSignup = async (e) => {
     e.preventDefault();
+
+    let valid = true;
+
+    if (name === "" || email === "" || password === "" || confirmPassword === "") {
+      alert("Please fill in all the fields.");
+      return;
+    }
+
+    if (!/^[A-Za-z .'-]+$/.test(name)) {
+      setNameError(
+        "Name can contain letters, spaces, dots, apostrophes and hyphens only."
+      );
+      valid = false;
+    } else {
+      setNameError("");
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setEmailError("Please enter a valid email address.");
+      valid = false;
+    } else {
+      setEmailError("");
+    }
+
+    if (!valid) {
+      return;
+    }
 
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
@@ -79,25 +109,75 @@ function Signup() {
 
             <div className="input-group">
               <label>Full Name</label>
+
               <input
                 type="text"
                 placeholder="Enter your full name"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                className={nameError ? "signup-input-error" : ""}
+                onChange={(e) => {
+
+                  const value = e.target.value;
+
+                  if (/^[A-Za-z .'-]*$/.test(value)) {
+                    setName(value);
+                    setNameError("");
+                  } else {
+                    setNameError(
+                      "Name can contain letters, spaces, dots, apostrophes and hyphens only."
+                    );
+                  }
+
+                }}
                 required
               />
+
+              {nameError && (
+                <p className="signup-error">
+                  {nameError}
+                </p>
+              )}
             </div>
+
 
             <div className="input-group">
               <label>Email</label>
+
               <input
                 type="email"
                 placeholder="Enter your email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                className={emailError ? "signup-input-error" : ""}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setEmailError("");
+                }}
+                onBlur={(e) => {
+
+                  const value = e.target.value;
+
+                  if (
+                    value &&
+                    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+                  ) {
+                    setEmailError(
+                      "Please enter a valid email address."
+                    );
+                  } else {
+                    setEmailError("");
+                  }
+
+                }}
                 required
               />
+
+              {emailError && (
+                <p className="signup-error">
+                  {emailError}
+                </p>
+              )}
             </div>
+
 
             <div className="password-row">
 
@@ -122,6 +202,7 @@ function Signup() {
                   </button>
                 </div>
               </div>
+
 
               <div className="input-group password-group">
                 <label>Confirm Password</label>
@@ -150,6 +231,7 @@ function Signup() {
               </div>
 
             </div>
+
 
             <button
               type="submit"

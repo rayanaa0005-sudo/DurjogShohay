@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import NavBar from "../components/NavBar";
+import { Link } from "react-router-dom";
 import "../styles/Admin.css";
 
 function Admin() {
@@ -124,9 +125,17 @@ function Admin() {
                     ADMIN PANEL
                 </h1>
 
+                <Link to="/volunteer-management">
+    <button>
+        Volunteer Management
+    </button>
+</Link>
+
                 <h2>
                     Donation Management
                 </h2>
+
+
 
 
                 {donations.length === 0 ? (
@@ -219,6 +228,7 @@ function Admin() {
                     ))
 
                 )}
+
 
             </div>
         </>

@@ -5,6 +5,7 @@ import "../styles/Rehabilitation.css";
 function Rehabilitation() {
 
   const [location, setLocation] = useState('');
+  const [locations, setLocations] = useState([]);
   const [help, setHelp] = useState('');
   const [description, setDescription] = useState('');
   const [contact, setContact] = useState('');
@@ -40,6 +41,37 @@ function Rehabilitation() {
     getPosts();
 
   }, []);
+
+
+  useEffect(() => {
+
+  async function getLocations() {
+
+    try {
+
+      const response = await fetch(
+        "http://localhost:5001/api/shelter-locations"
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setLocations(data);
+      } else {
+        alert(data.message);
+      }
+
+    } catch (error) {
+
+      console.log(error);
+      alert("Could not load locations");
+
+    }
+  }
+
+  getLocations();
+
+}, []);
 
   async function handlePost() {
 
@@ -120,22 +152,20 @@ function Rehabilitation() {
 
         <label>Location</label>
 
-        <select
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        >
-          <option value="">Select District</option>
-          <option>Dhaka</option>
-          <option>Gazipur</option>
-          <option>Narayanganj</option>
-          <option>Chittagong</option>
-          <option>Sylhet</option>
-          <option>Rajshahi</option>
-          <option>Khulna</option>
-          <option>Barisal</option>
-          <option>Rangpur</option>
-          <option>Mymensingh</option>
+
+
+
+
+        
+        <select value={location}onChange={(e) => setLocation(e.target.value)}>
+           <option value="">Select a location</option>
+               {locations.map((location) => (
+                  <option key={location._id} value={location.city}>{location.city}</option>))}
         </select>
+
+
+
+
 
         <label>What kind of help do you need?</label>
 

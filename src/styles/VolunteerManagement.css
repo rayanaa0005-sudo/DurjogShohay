@@ -1,0 +1,18 @@
+.volunteer-management-page {
+    padding: 40px;
+}
+
+.volunteer-management-page h1 {
+    margin-bottom: 30px;
+}
+
+.volunteer-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.volunteer-card p {
+    margin: 8px 0;
+}

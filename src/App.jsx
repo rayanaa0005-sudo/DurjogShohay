@@ -16,6 +16,7 @@ import Profile from "./pages/Profile";
 import Shelters from "./pages/Shelters";
 import VolunteerRecruitment from "./pages/VolunteerRecruitment";
 import Directory from "./pages/Directory";
+import VolunteerManagement from "./pages/VolunteerManagement";
 
 // Mithila's pages
 import EditProfile from "./pages/EditProfile";
@@ -58,6 +59,7 @@ function App() {
           <Route path="/track-donation" element={<TrackDonation />} />
           <Route path="/my-donations" element={<MyDonations />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/volunteer-management" element={<VolunteerManagement />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
