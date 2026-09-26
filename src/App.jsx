@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import PublicRoute from "./context/PublicRoute.jsx";
+import ProfileRoute from "./context/ProfileRoute.jsx";
 import "./App.css";
 
 // Rayas pages
@@ -53,7 +54,14 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route
+                  path="/profile"
+                  element={
+                    <ProfileRoute>
+                      <Profile />
+                    </ProfileRoute>
+                  }
+          />
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/disasters/flood" element={<Flood />} />
           <Route path="/disasters/flood" element={<Flood />} />
