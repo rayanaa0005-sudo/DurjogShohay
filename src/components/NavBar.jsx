@@ -1,51 +1,55 @@
 import { NavLink } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
-
+import { useAuth } from "../context/AuthContext.jsx";
 import "./NavBar.css";
 
 function NavBar() {
-  return (
-    <nav className="home-navbar">
 
-      {/* Logo */}
-      <div className="home-logo">DurjogShohay</div>
+    const { user } = useAuth();
 
-      {/* Navigation Links */}
-      <div className="home-nav-links">
+    return (
+        <nav className="home-navbar">
 
-  <NavLink to="/">Home</NavLink>
+            {/* Logo */}
+            <div className="home-logo">
+                DurjogShohay
+            </div>
 
-  <NavLink to="/shelters">Shelters</NavLink>
+            {/* Navigation Links */}
+            <div className="home-nav-links">
 
-  <NavLink to="/directory">Organisations</NavLink>
+                <NavLink to="/">Home</NavLink>
 
-  <NavLink to="/rehabilitation">Rehabilitation</NavLink>
+                <NavLink to="/shelters">Shelters</NavLink>
 
-  <NavLink to="/volunteer">Volunteer</NavLink>
+                <NavLink to="/directory">Organisations</NavLink>
 
-  <NavLink to="/donation">Donate</NavLink>
+                <NavLink to="/rehabilitation">Rehabilitation</NavLink>
 
-  <NavLink to="/track-donation">Track</NavLink>
+                <NavLink to="/volunteer">Volunteer</NavLink>
 
-  {/* <NavLink to="/about">About Us</NavLink> */}
+                <NavLink to="/donation">Donate</NavLink>
 
-  <NavLink to="/contact">Contact Us</NavLink>
+                <NavLink to="/track-donation">Track</NavLink>
 
-  <NavLink to="/profile">
-    <FaUser />
-    Profile
-  </NavLink>
+                <NavLink to="/contact">Contact Us</NavLink>
 
-  <NavLink to="/login">Login</NavLink>
+                <NavLink to="/profile">
+                    <FaUser />
+                    Profile
+                </NavLink>
 
-  <NavLink to="/signup" className="signup-nav">
-    Sign Up
-  </NavLink>
+                {/* Login only when user is logged out */}
+                {!user && (
+                    <NavLink to="/login">
+                        Login
+                    </NavLink>
+                )}
 
-</div>
+            </div>
 
-    </nav>
-  );
+        </nav>
+    );
 }
 
 export default NavBar;

@@ -11,6 +11,12 @@ import ForgotPassword from "./pages/ForgotPassword";
 import About from "./pages/AboutUs";
 import Contact from "./pages/ContactUs";
 import Profile from "./pages/Profile";
+import Flood from "./pages/Flood";
+import Cyclone from "./pages/Cyclone";
+import Earthquake from "./pages/Earthquake";
+import Fire from "./pages/Fire";
+import Landslide from "./pages/Landslide";
+import Drought from "./pages/Drought";
 
 // Tanha's pages
 import Shelters from "./pages/Shelters";
@@ -49,6 +55,13 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/disasters/flood" element={<Flood />} />
+          <Route path="/disasters/flood" element={<Flood />} />
+          <Route path="/disasters/cyclone" element={<Cyclone />} />
+          <Route path="/disasters/earthquake" element={<Earthquake />} />
+          <Route path="/disasters/fire" element={<Fire />} />
+          <Route path="/disasters/landslide" element={<Landslide />} />
+          <Route path="/disasters/drought" element={<Drought />} />
 
           <Route path="/shelters" element={<Shelters />} />
           <Route path="/volunteer" element={<VolunteerRecruitment />} />
