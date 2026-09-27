@@ -1,9 +1,11 @@
 
 import { useState } from "react";
 import NavBar from "../components/NavBar";
+import {useNavigate} from "react-router-dom";
 import "../styles/Donation.css";
 
 function Donation() {
+  const navigate = useNavigate();
 
   const [donationType, setDonationType] = useState("Food");
   const [quantity, setQuantity] = useState("");
@@ -66,7 +68,11 @@ function Donation() {
 
         setSubmitted(true);
 
-      } else {
+      }else if (response.status === 401) {
+        alert("You need to be logged in to make a donation. Redirecting to login page.");
+        navigate("/login");
+      } 
+      else {
 
         alert(data.message);
 

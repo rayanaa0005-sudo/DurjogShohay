@@ -41,7 +41,7 @@ export function AuthProvider({ children }) {
                 "http://localhost:5001/api/logout",
                 {
                     method: "POST",
-                    credentials: "include"
+                    credentials: "include" //send cookies with the request
                 }
             );
 
