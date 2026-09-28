@@ -3,22 +3,21 @@ import NavBar from "../components/NavBar";
 import "../styles/TrackDonation.css";
 
 function TrackDonation() {
-
   const [donationNumber, setDonationNumber] = useState("");
-
   const [donation, setDonation] = useState(null);
 
   async function handleTrack() {
-
     if (donationNumber === "") {
-
       alert("Please enter your donation number");
+      return;
+    }
 
+    if (!donationNumber.startsWith("D-")) {
+      alert("Invalid donation number. Donation numbers must start with D-");
       return;
     }
 
     try {
-
       const response = await fetch(
         `http://localhost:5001/api/donation/${donationNumber}`
       );
@@ -26,25 +25,15 @@ function TrackDonation() {
       const data = await response.json();
 
       if (response.ok) {
-
         setDonation(data);
-
       } else {
-
         setDonation(null);
-
         alert(data.message);
-
       }
-
     } catch (error) {
-
       console.log(error);
-
       alert("Something went wrong");
-
     }
-
   }
 
   return (
@@ -52,9 +41,8 @@ function TrackDonation() {
       <NavBar />
 
       <div className="track-page">
-
         <h1>TRACK MY DONATION</h1>
-
+        
         <h2>Enter your donation number</h2>
 
         <input
@@ -74,7 +62,6 @@ function TrackDonation() {
         </button>
 
         {donation && (
-
           <div className="donation-info">
 
             <h2>Donation Details</h2>
@@ -110,7 +97,6 @@ function TrackDonation() {
             </p>
 
           </div>
-
         )}
 
       </div>

@@ -15,12 +15,10 @@ function AboutUs() {
 
   return (
 
-
     <div className="about-page">
 
       <NavBar />
       <section className="about-hero">
-
         <p className="about-small-title">
           ABOUT DURJOGSHOHAY
         </p>
@@ -37,16 +35,10 @@ function AboutUs() {
           disaster information and community support when they
           need it most.
         </p>
-
-      </section>
-
-
-      
+      </section>     
 
       <section className="about-section">
-
         <div className="about-text">
-
           <p className="section-label">
             OUR MISSION
           </p>
@@ -68,12 +60,9 @@ function AboutUs() {
             access and help communities become more prepared
             for disasters.
           </p>
-
         </div>
 
-
         <div className="about-mission-card">
-
           <div className="mission-circle">
            <FaShieldAlt />
           </div>
@@ -88,16 +77,10 @@ function AboutUs() {
             Reliable information and assistance
             when it matters most.
           </p>
-
         </div>
-
       </section>
 
-
-      
-
       <section className="features-section">
-
         <p className="section-label">
           WHAT WE PROVIDE
         </p>
@@ -111,11 +94,8 @@ function AboutUs() {
           information and services during emergencies.
         </p>
 
-
         <div className="about-card-grid">
-
           <div className="about-card">
-
             <div className="about-card-icon">
               <FaExclamationTriangle />
             </div>
@@ -128,11 +108,9 @@ function AboutUs() {
               Quickly access important emergency
               services when you need immediate help.
             </p>
-
           </div>
 
           <div className="about-card">
-
             <div className="about-card-icon">
               <FaWater />
             </div>
@@ -145,12 +123,9 @@ function AboutUs() {
               Learn important safety procedures for
               floods, cyclones, earthquakes and fires.
             </p>
-
           </div>
 
-
           <div className="about-card">
-
             <div className="about-card-icon">
              <FaUsers />
             </div>
@@ -163,11 +138,9 @@ function AboutUs() {
               Help communities work together by
               sharing information and supporting others.
             </p>
-
           </div>
 
           <div className="about-card">
-
             <div className="contact-icon">
              <FaMapMarkerAlt />
             </div>
@@ -180,20 +153,12 @@ function AboutUs() {
               Find important emergency contacts and
               services in one convenient place.
             </p>
-
           </div>
-
         </div>
-
       </section>
 
-
-      
-
       <section className="vision-section">
-
         <div className="vision-content">
-
           <p className="section-label">
             OUR VISION
           </p>
@@ -207,22 +172,14 @@ function AboutUs() {
             find the help, information and resources they
             need before, during and after a disaster.
           </p>
-
         </div>
-
       </section>
 
-
-      
-
       <footer className="home-footer">
-
         <p>
           © 2026 DurjogShohay. Stay safe, stay prepared.
         </p>
-
       </footer>
-
     </div>
   );
 }

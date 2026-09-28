@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-    const [user, setUser] = useState(null); 
+    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -22,13 +22,14 @@ export function AuthProvider({ children }) {
                     setUser(data.user);
                 } else {
                     setUser(null);
-                    if (response.status === 401 && window.location.pathname !== "/login") {
-                    window.location.href = "/login";
-                    }
                 }
+
             } catch (error) {
                 console.log("Not logged in");
                 setUser(null);
+
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -48,6 +49,7 @@ export function AuthProvider({ children }) {
             if (response.ok) {
                 setUser(null);
             }
+
         } catch (error) {
             console.log("Logout error:", error);
         }
@@ -58,7 +60,8 @@ export function AuthProvider({ children }) {
             value={{
                 user,
                 setUser,
-                logout
+                logout,
+                loading
             }}
         >
             {children}

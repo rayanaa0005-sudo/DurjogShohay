@@ -1,23 +1,20 @@
 import { useState, useEffect } from "react";
+
 import NavBar from "../components/NavBar";
+
 import "../styles/Rehabilitation.css";
 
 function Rehabilitation() {
-
-  const [location, setLocation] = useState('');
+  const [location, setLocation] = useState("");
   const [locations, setLocations] = useState([]);
-  const [help, setHelp] = useState('');
-  const [description, setDescription] = useState('');
-  const [contact, setContact] = useState('');
-
+  const [help, setHelp] = useState("");
+  const [description, setDescription] = useState("");
+  const [contact, setContact] = useState("");
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-
     async function getPosts() {
-
       try {
-
         const response = await fetch(
           "http://localhost:5001/api/rehabilitation"
         );
@@ -29,65 +26,51 @@ function Rehabilitation() {
         } else {
           alert(data.message);
         }
-
       } catch (error) {
-
         console.log(error);
         alert("Could not load rehabilitation requests");
-
       }
     }
 
     getPosts();
-
   }, []);
 
-
   useEffect(() => {
+    async function getLocations() {
+      try {
+        const response = await fetch(
+          "http://localhost:5001/api/shelter-locations"
+        );
 
-  async function getLocations() {
+        const data = await response.json();
 
-    try {
-
-      const response = await fetch(
-        "http://localhost:5001/api/shelter-locations"
-      );
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setLocations(data);
-      } else {
-        alert(data.message);
+        if (response.ok) {
+          setLocations(data);
+        } else {
+          alert(data.message);
+        }
+      } catch (error) {
+        console.log(error);
+        alert("Could not load locations");
       }
-
-    } catch (error) {
-
-      console.log(error);
-      alert("Could not load locations");
-
     }
-  }
 
-  getLocations();
-
-}, []);
+    getLocations();
+  }, []);
 
   async function handlePost() {
-
     if (
-      location === '' ||
-      help === '' ||
-      description === '' ||
-      contact === ''
+      location === "" ||
+      help === "" ||
+      description === "" ||
+      contact === ""
     ) {
-      alert('Please fill in all fields');
+      alert("Please fill in all fields");
       return;
     }
 
-    // Check phone number
-    if (!/^\d{11}$/.test(contact)) {
-      alert("Contact number must be exactly 11 digits");
+    if (!/^01\d{9}$/.test(contact)) {
+      alert("Contact number must be exactly 11 digits and start with 01");
       return;
     }
 
@@ -99,7 +82,6 @@ function Rehabilitation() {
     };
 
     try {
-
       const response = await fetch(
         "http://localhost:5001/api/rehabilitation",
         {
@@ -114,25 +96,17 @@ function Rehabilitation() {
       const data = await response.json();
 
       if (response.ok) {
-
         setPosts([...posts, data.request]);
-
-        setLocation('');
-        setHelp('');
-        setDescription('');
-        setContact('');
-
+        setLocation("");
+        setHelp("");
+        setDescription("");
+        setContact("");
       } else {
-
         alert(data.message);
-
       }
-
     } catch (error) {
-
       console.log(error);
       alert("Something went wrong");
-
     }
   }
 
@@ -141,7 +115,6 @@ function Rehabilitation() {
       <NavBar />
 
       <div className="rehabilitation-page">
-
         <h1>REHABILITATION</h1>
 
         <h2>Need rehabilitation support?</h2>
@@ -152,20 +125,18 @@ function Rehabilitation() {
 
         <label>Location</label>
 
+        <select
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        >
+          <option value="">Select a location</option>
 
-
-
-
-        
-        <select value={location}onChange={(e) => setLocation(e.target.value)}>
-           <option value="">Select a location</option>
-               {locations.map((location) => (
-                  <option key={location._id} value={location.city}>{location.city}</option>))}
+          {locations.map((location) => (
+            <option key={location._id} value={location.city}>
+              {location.city}
+            </option>
+          ))}
         </select>
-
-
-
-
 
         <label>What kind of help do you need?</label>
 
@@ -207,12 +178,10 @@ function Rehabilitation() {
         <h2>Recent Rehabilitation Requests</h2>
 
         {posts.map((post, index) => (
-
           <div
             className="rehab-post"
             key={post._id || index}
           >
-
             <h3>📍 {post.location}</h3>
 
             <h4>{post.help}</h4>
@@ -226,11 +195,8 @@ function Rehabilitation() {
             >
               I Want To Help
             </button>
-
           </div>
-
         ))}
-
       </div>
     </>
   );

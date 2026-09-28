@@ -23,9 +23,6 @@ function Home() {
 
             <NavBar />
 
-
-            {/* Welcome Section */}
-
             <section className="welcome-section">
 
                 <div className="welcome-text">
@@ -56,7 +53,6 @@ function Home() {
 
                 </div>
 
-
                 <div className="welcome-shape">
 
                     <div className="circle-one"></div>
@@ -66,10 +62,6 @@ function Home() {
                 </div>
 
             </section>
-
-
-            {/* Disaster Information */}
-
             <section className="disaster-section">
 
                 <h2>
@@ -84,8 +76,6 @@ function Home() {
 
                 <div className="disaster-grid">
 
-
-                    {/* Flood */}
 
                     <Link to="/disasters/flood" className="disaster-card">
                       <div className="disaster-icon">
@@ -103,9 +93,6 @@ function Home() {
                         </p>
                       </div>
                     </Link>
-
-
-                    {/* Cyclone */}
 
                     <Link to="/disasters/cyclone" className="disaster-card">
 
@@ -125,9 +112,6 @@ function Home() {
 
                     </Link>
 
-
-                    {/* Earthquake */}
-
                     <Link to="/disasters/earthquake" className="disaster-card">
 
                         <div className="disaster-icon">
@@ -146,9 +130,6 @@ function Home() {
 
                     </Link>
 
-
-                    {/* Fire */}
-
                     <Link to="/disasters/fire" className="disaster-card">
 
                         <div className="disaster-icon">
@@ -166,10 +147,6 @@ function Home() {
                         </div>
 
                     </Link>
-
-
-                    {/* Landslide */}
-
                     <Link to="/disasters/landslide" className="disaster-card">
 
                         <div className="disaster-icon">
@@ -188,9 +165,6 @@ function Home() {
                         </div>
 
                     </Link>
-
-
-                    {/* Drought */}
 
                     <Link to="/disasters/drought" className="disaster-card">
 
@@ -211,13 +185,9 @@ function Home() {
 
                     </Link>
 
-
                 </div>
 
             </section>
-
-
-            {/* Be Prepared Section */}
 
             <section className="prepared-section">
 
@@ -292,8 +262,6 @@ function Home() {
 
             </section>
 
-
-            {/* Footer */}
 
             <footer className="home-footer">
 

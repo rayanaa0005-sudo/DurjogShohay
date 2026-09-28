@@ -1,17 +1,8 @@
-/* ==================================================
-   DISASTER INFORMATION PAGES
-   Used by Cyclone, Earthquake, Fire, Landslide, Drought
-================================================== */
-
 .disaster-page {
   min-height: 100vh;
   background-color: #ffffff;
   color: #333333;
 }
-
-/* ==================================================
-   HEADER
-================================================== */
 
 .disaster-header {
   background-color: #006a4e;
@@ -51,19 +42,11 @@
   color: #edf8f4;
 }
 
-/* ==================================================
-   MAIN CONTAINER
-================================================== */
-
 .disaster-container {
   width: 88%;
   max-width: 1100px;
   margin: 50px auto 80px auto;
 }
-
-/* ==================================================
-   QUICK FACTS
-================================================== */
 
 .quick-facts {
   background-color: #f4faf8;
@@ -104,10 +87,6 @@
   line-height: 1.4;
 }
 
-/* ==================================================
-   CONTENTS
-================================================== */
-
 .disaster-contents {
   width: 300px;
   background-color: #f7f7f7;
@@ -142,10 +121,6 @@
   text-decoration: underline;
 }
 
-/* ==================================================
-   INFORMATION SECTIONS
-================================================== */
-
 .disaster-info-section {
   margin-bottom: 55px;
   scroll-margin-top: 30px;
@@ -175,10 +150,6 @@
 .disaster-info-section li {
   margin-bottom: 8px;
 }
-
-/* ==================================================
-   SPECIAL 3-CARD SECTION
-================================================== */
 
 .disaster-type-grid {
   display: grid;
@@ -210,10 +181,6 @@
   font-size: 14px;
   margin: 0;
 }
-
-/* ==================================================
-   SAFETY SECTIONS
-================================================== */
 
 .safety-section {
   background-color: #f4faf8;

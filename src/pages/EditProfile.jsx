@@ -26,7 +26,7 @@ function EditProfile() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Check phone number
+       
         if (!/^\d{11}$/.test(phone)) {
             alert("Phone number must be exactly 11 digits");
             return;
